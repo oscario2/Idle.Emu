@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="Resources\**">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <TargetPath>Resources\%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Idle.Emu.Shared\Idle.Emu.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

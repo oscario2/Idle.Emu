@@ -1,0 +1,3632 @@
+// generated 2021-10-21 13:53
+syntax = "proto2";
+
+option csharp_namespace = "Idle.Emu.Messages.Logic.Protos";
+
+package public;
+
+import "dr2_comm_pb.proto";
+
+message IdleReqAuth {
+	required string session = 1;
+	optional int32 uid = 2;
+	optional string env = 3;
+	optional string ids = 4;
+	optional int32 support_zip = 5;
+}
+
+message IdleRspAuth {
+	required sint32 status = 1;
+	optional string createTs = 2;
+	optional sint32 web = 3;
+	repeated string url = 4;
+}
+
+message IdleReqSync {
+	optional string idfa = 1;
+	optional string keychain = 2;
+	optional string idfv = 3;
+}
+
+message IdleRspSync {
+	required sint32 status = 1;
+	optional IdlePlayer player = 2;
+	optional IdleBag bag = 3;
+	repeated IdleHero heroes = 4;
+	optional IdleGacha gacha = 5;
+	repeated int32 hero_ids = 6;
+	repeated IdleMail mails = 7;
+	optional int32 midas_cd = 8;
+	optional IdleHook hook = 9;
+	optional int32 midas_crstcd = 10;
+	repeated int32 pay_num = 11;
+	optional int32 tutorial = 12;
+	optional IdleFriend friends = 13;
+	optional IdleStrial trial = 14;
+	optional IdleAlogin alogin = 15;
+	repeated IdleAct acts = 16;
+	optional IdleSachieve achieve = 17;
+	repeated IdleTask tasks = 18;
+	optional int32 task_cd = 19;
+	optional IdleOnline online = 20;
+	optional int32 midas_flag = 21;
+	optional int32 web_flag = 22;
+	optional int32 video_ad = 23;
+	repeated IdleAct limitacts = 24;
+	optional IdleHtaskSync htask = 26;
+	optional int32 buy_hlimit = 27;
+	optional int32 space_gacha = 28;
+	repeated IdleCd cds = 29;
+	optional int32 final_rank = 30;
+	optional bool hide_vip = 31;
+	optional int32 tutorial2 = 32;
+	repeated IdlePet pets = 33;
+	optional int32 reddot = 34;
+	repeated IdleGskl gskls = 35;
+	optional int32 subscribed = 36;
+	repeated IdleItem skin = 37;
+	optional int32 gsklcode = 38;
+	optional int32 chatblocks = 39;
+	optional IdleIdentity identity = 40;
+	optional IdleMact mact = 41;
+	optional int32 audit = 42;
+	optional IdleSact sact = 43;
+	optional int32 off_card = 44;
+	optional int32 video_cd = 45;
+	optional IdleRact ract = 46;
+	optional int32 use_hitem = 47;
+	optional IdleReSync re_sync = 48;
+	repeated IdleMidas new_midas = 49;
+	optional IdleStele stele = 50;
+	optional string token = 51;
+	optional int32 stower_lv = 52;
+	repeated int32 spet_ids = 53;
+	repeated int32 skin_ids = 54;
+}
+
+message IdleReqUp {
+	required string vsn = 1;
+	optional string packagename = 2;
+}
+
+message IdleRspUp {
+	required int32 status = 1;
+	required string vsn = 2;
+	required int32 lv = 3;
+	optional string prefix = 4;
+	repeated IdleUpfile files = 5;
+	optional string upList = 6;
+	optional int32 thcount = 7;
+	optional string appurl = 8;
+	repeated string upurl = 9;
+}
+
+message IdleReqBind {
+	required string account = 1;
+	required string password = 2;
+}
+
+message IdleRspBind {
+	required sint32 status = 1;
+}
+
+message IdleReqChangePassword {
+	required string old = 1;
+	required string new = 2;
+}
+
+message IdleRspChangePassword {
+	required sint32 status = 1;
+}
+
+message IdleRspServers {
+	repeated IdleServer servers = 1;
+	optional int32 mid = 2;
+}
+
+message IdleReqPlayer {
+	required int64 uid = 1;
+	optional int32 kind = 2;
+}
+
+message IdleRspPlayer {
+	optional int32 gid = 1;
+	optional string gname = 2;
+	repeated IdleUnit heroes = 3;
+	optional int32 power = 4;
+	optional int32 report = 5;
+}
+
+message IdleReqChangeName {
+	required string name = 1;
+}
+
+message IdleRspChangeName {
+	required sint32 status = 1;
+}
+
+message IdleReqChangeLogo {
+	required int32 logo = 1;
+}
+
+message IdleRspChangeLogo {
+	required sint32 status = 1;
+}
+
+message IdleReqRateUs {
+	required int32 action = 1;
+}
+
+message IdleRspRateUs {
+	required sint32 status = 1;
+}
+
+message IdleRspReport {
+	required sint32 status = 1;
+}
+
+message IdleReqCdkey {
+	required string key = 1;
+}
+
+message IdleRspCdkey {
+	required sint32 status = 1;
+}
+
+message IdleReqLpub {
+	required int32 language = 1;
+	required int32 vsn = 2;
+}
+
+message IdleRspLpub {
+	required sint32 status = 1;
+	optional int32 language = 2;
+	optional int32 vsn = 3;
+	optional string pub = 4;
+}
+
+message IdleReqChangeHeadBorder {
+	required int32 op = 1;
+	optional int32 border = 2;
+}
+
+message IdleRspChangeHeadBorder {
+	required sint32 status = 1;
+}
+
+message IdleReqUpgradeHeadBorder {
+	required int32 border = 1;
+	optional int32 num = 2;
+	repeated IdleEquip equips = 3;
+}
+
+message IdleRspUpgradeHeadBorder {
+	required sint32 status = 1;
+	optional int32 num = 2;
+	optional IdleEquip equip = 3;
+}
+
+message IdleReqFlagWebgame {
+	required int32 id = 1;
+}
+
+message IdleRspFlagWebgame {
+	required sint32 status = 1;
+	optional int32 flag = 2;
+	optional IdleBag reward = 3;
+}
+
+message IdleRspSmsg {
+	required string msg = 1;
+}
+
+message IdleReqAudit {
+	required string id = 1;
+	required string name = 2;
+}
+
+message IdleRspAudit {
+	required int32 status = 1;
+	optional int32 audit = 2;
+	optional int32 each_pay = 3;
+	optional int32 left_pay = 4;
+}
+
+message IdleReqGacha {
+	required int32 type = 1;
+}
+
+message IdleRspGacha {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+	repeated IdleItem items = 3;
+	optional int32 gem = 4;
+}
+
+message IdleReqWear {
+	required int32 hid = 1;
+	repeated IdleEquip equips = 2;
+}
+
+message IdleRspWear {
+	required int32 status = 1;
+}
+
+message IdleReqHeroDecompose {
+	repeated int32 hid = 1;
+}
+
+message IdleRspHeroDecompose {
+	required int32 status = 1;
+	repeated IdleItem items = 2;
+}
+
+message IdleReqHeroMerge {
+	required IdleItem item = 1;
+}
+
+message IdleRspHeroMerge {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+}
+
+message IdleReqHeroUp {
+	required int32 hid = 1;
+	required int32 type = 2;
+	optional int32 lv = 3;
+}
+
+message IdleRspHeroUp {
+	required sint32 status = 1;
+	optional int32 lv = 2;
+}
+
+message IdleReqHeroLock {
+	required int32 hid = 1;
+	required int32 lock = 2;
+}
+
+message IdleRspHeroLock {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroMix {
+	required int32 id = 1;
+	repeated int32 hids = 2;
+}
+
+message IdleRspHeroMix {
+	required sint32 status = 1;
+	optional IdleHero hero = 2;
+}
+
+message IdleReqJadeOn {
+	required int32 hid = 1;
+}
+
+message IdleRspJadeOn {
+	required sint32 status = 1;
+	optional int32 jade = 2;
+}
+
+message IdleReqJadeUp {
+	required int32 hid = 1;
+	optional bool gem = 2;
+}
+
+message IdleRspJadeUp {
+	required sint32 status = 1;
+	optional int32 jade = 2;
+}
+
+message IdleReqJadeChange {
+	required int32 hid = 1;
+}
+
+message IdleRspJadeChange {
+	required sint32 status = 1;
+	optional int32 jade = 2;
+}
+
+message IdleReqJadeOk {
+	required int32 hid = 1;
+	optional int32 pos = 2;
+}
+
+message IdleRspJadeOk {
+	required sint32 status = 1;
+}
+
+message IdleRspBuyHlimit {
+	optional sint32 status = 1;
+}
+
+message IdleReqTransformHero {
+	required int32 hid = 1;
+}
+
+message IdleRspTransformHero {
+	required sint32 status = 1;
+	optional int32 hero_id = 2;
+}
+
+message IdleReqTransformOk {
+	required int32 type = 1;
+}
+
+message IdleRspTransformOk {
+	required sint32 status = 1;
+	optional int32 jade = 2;
+}
+
+message IdleReqHeroWake {
+	required int32 hid = 1;
+	repeated int32 source = 2;
+}
+
+message IdleRspHeroWake {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroChange {
+	required int32 hostHid = 1;
+	repeated int32 hids = 2;
+}
+
+message IdleRspHeroChange {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+	repeated IdleItem items = 3;
+}
+
+message IdleReqHeroSkinMix {
+	required int32 item_id = 1;
+	required int32 num = 2;
+}
+
+message IdleRspHeroSkinMix {
+	required sint32 status = 1;
+	repeated IdleEquip skin = 2;
+}
+
+message IdleReqHeroSkinWear {
+	required int32 hid = 1;
+	required int32 skinid = 2;
+}
+
+message IdleRspHeroSkinWear {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroSkinOff {
+	required int32 hid = 1;
+}
+
+message IdleRspHeroSkinOff {
+	required sint32 status = 1;
+}
+
+message IdleReqShieldChange {
+	required int32 id = 1;
+	repeated int32 hids = 2;
+}
+
+message IdleRspShieldChange {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqHeroSkinVisit {
+	required int32 hid = 1;
+}
+
+message IdleRspHeroSkinVisit {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroSkinBreakdown {
+	required int32 skin_id = 1;
+}
+
+message IdleRspHeroSkinBreakdown {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroTalen {
+	required int32 hid = 1;
+	repeated int32 source = 2;
+	required int32 skill_id = 3;
+}
+
+message IdleRspHeroTalen {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroTalenop {
+	required int32 hid = 1;
+	repeated int32 skill_id = 2;
+}
+
+message IdleRspHeroTalenop {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroReturn {
+	required int32 hid = 1;
+}
+
+message IdleRspHeroReturn {
+	required int32 status = 1;
+	repeated IdleHero heroes = 2;
+	repeated IdleItem items = 3;
+}
+
+message IdleReqHeroSkinLimitmix {
+	repeated int32 skin_id = 1;
+}
+
+message IdleRspHeroSkinLimitmix {
+	required sint32 status = 1;
+	required int32 skin_id = 2;
+}
+
+message IdleReqHeroSkinUp {
+	optional int32 hid = 1;
+	optional int32 id = 2;
+	repeated int32 skin_id = 3;
+}
+
+message IdleRspHeroSkinUp {
+	required sint32 status = 1;
+}
+
+message IdleReqHeroTicket {
+	required int32 type = 1;
+	required int32 count = 2;
+}
+
+message IdleRspHeroTicket {
+	required sint32 status = 1;
+}
+
+message IdleReqJadeUnlock {
+	required int32 hid = 1;
+}
+
+message IdleRspJadeUnlock {
+	required int32 status = 1;
+	optional int32 num = 2;
+}
+
+message IdleReqJadeUsed {
+	required int32 hid = 1;
+	required int32 pos = 2;
+}
+
+message IdleRspJadeUsed {
+	required int32 status = 1;
+}
+
+message IdleReqAutoLvup {
+	required int32 type = 1;
+	optional int32 id = 2;
+	optional int32 lv = 3;
+	optional int32 sklid = 4;
+}
+
+message IdleRspAutoLvup {
+	required int32 status = 1;
+	repeated IdleItem costs = 2;
+}
+
+message IdleReqOpMail {
+	repeated int32 reads = 1;
+	repeated int32 deletes = 2;
+	repeated int32 affixs = 3;
+	repeated int32 blocks = 4;
+}
+
+message IdleRspOpMail {
+	required sint32 status = 1;
+	optional IdleBag affix = 2;
+}
+
+message IdleReqSendMail {
+	required int64 uid = 1;
+	optional string pname = 2;
+	required string content = 3;
+	optional int32 mid = 4;
+}
+
+message IdleRspSendMail {
+	required sint32 status = 1;
+}
+
+message IdleReqSell {
+	repeated IdleItem items = 1;
+	repeated IdleEquip equips = 2;
+}
+
+message IdleRspSell {
+	required sint32 status = 1;
+	optional IdleItem item = 2;
+}
+
+message IdleReqMidas {
+	required int32 type = 1;
+}
+
+message IdleRspMidas {
+	required sint32 status = 2;
+}
+
+message IdleReqMergeTreasure {
+	required IdleItem item = 1;
+}
+
+message IdleRspMergeTreasure {
+	required sint32 status = 1;
+	repeated IdleEquip equip = 2;
+}
+
+message IdleReqUpTreasure {
+	required int32 id = 1;
+	repeated IdleItem source = 2;
+	optional int32 hid = 3;
+}
+
+message IdleRspUpTreasure {
+	required sint32 status = 1;
+	optional int32 over = 2;
+}
+
+message IdleReqEquipMerge {
+	required int32 id = 1;
+	required int32 num = 2;
+}
+
+message IdleRspEquipMerge {
+	required int32 status = 1;
+}
+
+message IdleReqExchangeAct {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspExchangeAct {
+	required sint32 status = 1;
+	optional IdleBag affix = 2;
+}
+
+message IdleReqOpenGift {
+	required int32 item = 1;
+	required int32 num = 2;
+	optional int32 dest = 3;
+}
+
+message IdleRspOpenGift {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqDwarf {
+	required int32 id = 1;
+	optional int32 reward = 2;
+}
+
+message IdleRspDwarf {
+	required sint32 status = 1;
+	repeated IdleEquip reward = 2;
+}
+
+message IdleReqEquipResolve {
+	repeated IdleEquip equips = 1;
+}
+
+message IdleRspEquipResolve {
+	required sint32 status = 1;
+	optional IdleItem reward = 2;
+}
+
+message IdleReqEquipSoul {
+	required int32 eid = 1;
+	optional int32 type = 2;
+	optional int32 hid = 3;
+	optional int32 hero_id = 4;
+}
+
+message IdleRspEquipSoul {
+	required sint32 status = 1;
+	optional int32 hid = 2;
+}
+
+message IdleReqEquipSoulOk {
+	required int32 flag = 1;
+}
+
+message IdleRspEquipSoulOk {
+	required sint32 status = 1;
+	optional IdleEquip equip = 2;
+}
+
+message IdleRspEquipSoulSync {
+	required sint32 status = 1;
+	optional int32 eid = 2;
+	optional int32 hid = 3;
+	optional int32 times = 4;
+	optional int32 hero_id = 5;
+}
+
+message IdleReqDwarfChange {
+	required int32 id = 1;
+	repeated IdleEquip src = 2;
+	optional int32 dst = 3;
+}
+
+message IdleRspDwarfChange {
+	required sint32 status = 1;
+	repeated IdleEquip reward = 2;
+}
+
+message IdleRspSyncChat {
+	repeated IdleChat msgs = 1;
+}
+
+message IdleReqChat {
+	required int32 type = 1;
+	optional string text = 2;
+	optional int32 hid = 3;
+	optional string gud_imsg = 4;
+}
+
+message IdleRspChat {
+	required sint32 status = 1;
+}
+
+message IdleReqCunit {
+	required int32 share_id = 1;
+}
+
+message IdleRspCunit {
+	required sint32 status = 1;
+	optional IdleCunit unit = 2;
+}
+
+message IdleReqBlockChat {
+	required int32 uid = 1;
+}
+
+message IdleRspBlockChat {
+	required int32 status = 1;
+}
+
+message IdleRspHideVip {
+	required sint32 status = 1;
+}
+
+message IdleReqTranslate {
+	required string sentence = 1;
+	required string target = 2;
+}
+
+message IdleRspTranslate {
+	required sint32 status = 1;
+	optional string sentence = 2;
+}
+
+message IdleReqChatSetting {
+	required int32 chatblocks = 1;
+}
+
+message IdleRspChatSetting {
+	required sint32 status = 1;
+}
+
+message IdleReqResolveBlockChat {
+	required int32 uid = 1;
+}
+
+message IdleRspResolveBlockChat {
+	required int32 status = 1;
+}
+
+message IdleRspGetBlockChat {
+	required int32 status = 1;
+	repeated IdleFrd frds = 2;
+}
+
+message IdleReqReport {
+	required int32 uid = 1;
+	required int32 type = 2;
+	optional string content = 3;
+}
+
+message IdleReqBmarketPull {
+	required int32 type = 1;
+}
+
+message IdleRspBmarketPull {
+	required sint32 status = 1;
+	required int32 cd = 2;
+	repeated int32 buy = 3;
+	repeated IdleGood good = 4;
+}
+
+message IdleReqBmarketBuy {
+	required int32 index = 1;
+}
+
+message IdleRspBmarketBuy {
+	required sint32 status = 1;
+	optional IdleBag bag = 2;
+}
+
+message IdleRspHookInit {
+	required IdleHook hook = 1;
+}
+
+message IdleReqHookChange {
+	required int32 stage = 1;
+}
+
+message IdleRspHookChange {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+	optional int32 boss_cd = 3;
+}
+
+message IdleRspHookAsk {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqHookReward {
+	required int32 type = 1;
+}
+
+message IdleRspHookReward {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqTestFight {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspTestFight {
+	repeated bytes frames = 1;
+	optional bool win = 2;
+}
+
+message IdleReqPve {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspPve {
+	required int32 status = 1;
+	optional IdleEvideo video = 2;
+}
+
+message IdleRspSyncBrave {
+	required sint32 status = 1;
+	optional int32 id = 2;
+	optional int32 stage = 3;
+	repeated IdleBunit team = 4;
+	optional int32 cd = 5;
+	optional IdleBenemy enemy = 6;
+	repeated int32 nodes = 7;
+	repeated IdleBraveBox boxes = 8;
+	repeated IdleBraveBuff buffs = 9;
+	optional int32 energy = 10;
+	repeated int32 times = 11;
+	optional int32 spe = 12;
+	repeated IdleBraveBuff enemy_buffs = 13;
+	optional int32 day_times = 14;
+	optional int32 night_times = 15;
+	optional int32 sweep_stage = 16;
+}
+
+message IdleReqBraveFight {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspBraveFight {
+	required sint32 status = 1;
+	optional int32 stage = 2;
+	optional bool win = 3;
+	repeated bytes frames = 4;
+	repeated IdleHurts hurts = 5;
+	optional IdleBenemy enemy = 6;
+	repeated IdleBunit mhpp = 7;
+	repeated IdleBunit ehpp = 8;
+	repeated IdleBag rewards = 9;
+	optional int32 select = 10;
+	repeated IdleBraveBox boxes = 11;
+	optional int32 spe = 12;
+	repeated IdleBraveBuff enemy_buffs = 13;
+}
+
+message IdleReqBravePull {
+	required int32 stage = 1;
+}
+
+message IdleRspBravePull {
+	optional IdleBenemy enemy = 1;
+	required int32 spe = 2;
+	repeated IdleBraveBuff enemy_buffs = 3;
+}
+
+message IdleReqBraveNode {
+	repeated int64 stage = 1;
+}
+
+message IdleRspBraveNode {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqBraveOpen {
+	required int32 id = 1;
+}
+
+message IdleRspBraveOpen {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqBraveAltar {
+	required int32 type = 1;
+	repeated int32 hero_id = 2;
+}
+
+message IdleRspBraveAltar {
+	required sint32 status = 1;
+	optional IdleBraveBuff buff = 2;
+}
+
+message IdleReqBraveBuy {
+	required int32 num = 1;
+}
+
+message IdleRspBraveBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspPveRank {
+	repeated IdleTrial mbrs = 1;
+	required int32 rank = 2;
+}
+
+message IdleRspSealandSync {
+	required int32 status = 1;
+	optional int32 cd = 2;
+	optional int32 lose = 3;
+	optional int32 challenge_buy = 4;
+	optional int32 sweep_buy = 5;
+	optional int32 sweep_times = 6;
+	repeated int32 stages = 7;
+	optional int32 free_sweep = 8;
+}
+
+message IdleReqSealandChallengeBuy {
+	required int32 num = 2;
+}
+
+message IdleRspSealandChallengeBuy {
+	required sint32 status = 1;
+}
+
+message IdleReqSealandFight {
+	required int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspSealandFight {
+	required sint32 status = 1;
+	optional int32 stage = 2;
+	optional bool win = 3;
+	repeated bytes frames = 4;
+	repeated IdleHurts hurts = 5;
+}
+
+message IdleReqSealandReward {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspSealandReward {
+	required sint32 status = 1;
+}
+
+message IdleReqSealandSweepBuy {
+	required int32 num = 2;
+}
+
+message IdleRspSealandSweepBuy {
+	required sint32 status = 1;
+}
+
+message IdleReqSealandMarketBuy {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspSealandMarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspBraveSweep {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspFrdSync {
+	repeated IdleFrd friends = 1;
+	required int32 love = 2;
+	required int32 cd = 3;
+	repeated IdleFrd apply = 4;
+	repeated IdleFrd recmd = 5;
+}
+
+message IdleReqFrdOp {
+	optional int64 apply = 1;
+	optional int64 rm = 2;
+	optional int64 agree = 3;
+	repeated int64 disagree = 4;
+}
+
+message IdleRspFrdOp {
+	required int32 status = 1;
+}
+
+message IdleReqFrdLove {
+	optional int64 send = 1;
+	repeated int64 recv = 2;
+}
+
+message IdleRspFrdLove {
+	required int32 status = 1;
+}
+
+message IdleRspFrdNotify {
+	optional int64 love = 1;
+	optional int64 del = 2;
+	optional IdleFrd add = 3;
+	optional IdleFrd apply = 4;
+}
+
+message IdleReqFrdPk {
+	required int64 uid = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspFrdPk {
+	required int32 status = 1;
+	optional IdlePvideo video = 2;
+}
+
+message IdleRspFrdAdvise {
+	required int32 status = 1;
+	repeated IdleFrd frds = 2;
+}
+
+message IdleReqPullCasino {
+	required int32 type = 1;
+	optional bool up = 2;
+}
+
+message IdleRspPullCasino {
+	required sint32 status = 1;
+	repeated IdleCasinoItem items = 2;
+	required int32 cd = 3;
+	repeated IdleCasinoMsg msgs = 4;
+	optional int32 force_cd = 5;
+}
+
+message IdleReqCasinoMsg {
+	required int32 count = 1;
+	optional bool up = 2;
+}
+
+message IdleRspCasinoMsg {
+	required sint32 status = 1;
+	repeated IdleCasinoMsg msgs = 2;
+}
+
+message IdleReqCasinoDraw {
+	required int32 type = 1;
+	optional bool up = 2;
+}
+
+message IdleRspCasinoDraw {
+	required sint32 status = 1;
+	repeated int32 ids = 2;
+	optional IdleBag bag = 3;
+	optional int32 lucky_coin = 4;
+}
+
+message IdleReqCasinoBuy {
+	required int32 count = 1;
+}
+
+message IdleRspCasinoBuy {
+	required sint32 status = 1;
+}
+
+message IdleReqLmarketPull {
+	required int32 type = 1;
+}
+
+message IdleRspLmarketPull {
+	required sint32 status = 1;
+	required int32 cd = 2;
+	repeated IdleGood goods = 3;
+}
+
+message IdleReqLmarketBuy {
+	required int32 id = 1;
+}
+
+message IdleRspLmarketBuy {
+	required sint32 status = 1;
+	required IdleBag bag = 2;
+}
+
+message IdleRspGuildSync {
+	required sint32 status = 1;
+	optional IdleGuild guild = 2;
+	repeated IdleGmember members = 3;
+	optional int32 sign_cd = 4;
+	optional int32 appliers_count = 5;
+	optional int32 invite = 6;
+	optional bool free_name = 7;
+}
+
+message IdleRspGuildRank {
+	repeated IdleGuild guilds = 1;
+	optional int32 self = 2;
+}
+
+message IdleRspGlog {
+	repeated IdleGlog logs = 1;
+}
+
+message IdleReqGuildCreate {
+	required string name = 1;
+	required int32 logo = 2;
+	required string notice = 3;
+}
+
+message IdleRspGuildCreate {
+	required sint32 status = 1;
+}
+
+message IdleReqGuildNotice {
+	required string notice = 1;
+}
+
+message IdleRspGuildNotice {
+	required sint32 status = 1;
+}
+
+message IdleReqGuildFlag {
+	required int32 id = 1;
+}
+
+message IdleRspGuildFlag {
+	required sint32 status = 1;
+}
+
+message IdleReqGuildName {
+	required string name = 1;
+}
+
+message IdleRspGuildName {
+	required sint32 status = 1;
+}
+
+message IdleReqGuildDismiss {
+	optional int32 dismiss = 1;
+	optional int32 nodismiss = 2;
+}
+
+message IdleRspGuildDismiss {
+	required sint32 status = 1;
+}
+
+message IdleReqGuildApply {
+	required int32 gid = 1;
+}
+
+message IdleRspGuildApply {
+	required sint32 status = 1;
+}
+
+message IdleRspGuildLeave {
+	required sint32 status = 1;
+}
+
+message IdleRspGuildSign {
+	required sint32 status = 1;
+	repeated IdleItem item = 2;
+	optional int32 cd = 3;
+}
+
+message IdleRspGuildRecommend {
+	repeated IdleGuild guilds = 1;
+}
+
+message IdleReqGuildSearch {
+	required string word = 1;
+}
+
+message IdleRspGuildSearch {
+	repeated IdleGuild guilds = 1;
+}
+
+message IdleRspGuildAppliers {
+	repeated IdleGmember mems = 1;
+}
+
+message IdleReqGmemberOpt {
+	required int32 type = 1;
+	required int64 muid = 2;
+}
+
+message IdleRspGmemberOpt {
+	required sint32 status = 1;
+}
+
+message IdleRspGuildNotify {
+	required int32 type = 1;
+	optional int64 uid = 2;
+}
+
+message IdleRspGbossSync {
+	required int32 id = 1;
+	required int32 cd = 2;
+	required int32 hpp = 3;
+	required int32 fights = 4;
+}
+
+message IdleReqGbossRank {
+	required int32 id = 1;
+}
+
+message IdleRspGbossRank {
+	repeated IdleGvrank ranks = 1;
+}
+
+message IdleReqGbossFight {
+	required int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspGbossFight {
+	required sint32 status = 1;
+	optional bool win = 2;
+	repeated bytes frames = 3;
+	repeated IdleHurts hurts = 4;
+	repeated int32 hpps = 5;
+	optional int32 exp = 6;
+}
+
+message IdleRspGsklSync {
+	repeated IdleGskl skls = 1;
+}
+
+message IdleReqGsklUp {
+	required int32 id = 1;
+}
+
+message IdleRspGsklUp {
+	required sint32 status = 1;
+}
+
+message IdleReqGsklReset {
+	required int32 id = 1;
+}
+
+message IdleRspGsklReset {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspGfireSync {
+	required int32 status = 1;
+	optional int32 id = 2;
+	optional int32 num = 3;
+	optional int32 count = 4;
+	optional int32 cd = 5;
+	optional int32 bossid = 6;
+	optional int32 rcd = 7;
+	optional int64 hurts = 8;
+}
+
+message IdleRspGfireReg {
+	required int32 status = 1;
+	optional int32 cd = 2;
+}
+
+message IdleReqGfireFight {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspGfireFight {
+	required int32 status = 1;
+	optional bool win = 2;
+	repeated bytes frames = 3;
+	repeated IdleHurts hurts = 4;
+	repeated int32 hpps = 5;
+}
+
+message IdleRspGfireRank {
+	repeated IdleGvrank ranks = 1;
+	optional int64 hurts = 2;
+}
+
+message IdleRspGveSync {
+	required sint32 status = 1;
+	repeated int64 maps_exp = 2;
+	repeated int32 maps_lv = 3;
+	repeated int32 boss = 4;
+	repeated int32 claim = 5;
+	optional int32 task = 6;
+	optional int32 gold = 7;
+	optional int32 cd = 8;
+}
+
+message IdleRspGveRank {
+	required sint32 status = 1;
+	repeated IdleGveRank rank = 2;
+	repeated int64 maps_exp = 3;
+}
+
+message IdleReqGveFight {
+	optional int32 mapid = 1;
+	optional int32 hid = 2;
+}
+
+message IdleRspGveFight {
+	required sint32 status = 1;
+	optional IdleEvideo video = 2;
+}
+
+message IdleReqGveTask {
+	optional int32 taskid = 1;
+	repeated int32 hids = 2;
+}
+
+message IdleRspGveTask {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspGveClaim {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqGveMapClaim {
+	optional int32 id = 1;
+}
+
+message IdleRspGveMapClaim {
+	required sint32 status = 1;
+}
+
+message IdleRspTrial {
+	required sint32 status = 1;
+	required int32 id = 2;
+	required int32 tl = 3;
+	required int32 cd = 4;
+}
+
+message IdleRspTrialRank {
+	repeated IdleTrial rank = 1;
+}
+
+message IdleReqTrialFight {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspTrialFight {
+	required sint32 status = 1;
+	optional IdleEvideo video = 2;
+}
+
+message IdleRspTrialVideo {
+	required sint32 status = 1;
+	repeated IdleTrial videos = 2;
+}
+
+message IdleReqTrialTl {
+	required int32 num = 1;
+}
+
+message IdleRspTrialTl {
+	required sint32 status = 2;
+}
+
+message IdleRspPvpSync {
+	repeated IdlePvp infos = 1;
+	optional IdleWpvp wpvp = 2;
+}
+
+message IdleReqPvpCamp {
+	optional int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspPvpCamp {
+	required sint32 status = 1;
+}
+
+message IdleReqPvpRefresh {
+	optional int32 id = 2;
+}
+
+message IdleRspPvpRefresh {
+	required int32 status = 1;
+	repeated IdlePmbr rivals = 2;
+}
+
+message IdleReqPvpFight {
+	required int32 id = 1;
+	required int32 uid = 2;
+	repeated IdleUnit camp = 3;
+	optional int32 svr_id = 4;
+}
+
+message IdleRspPvpFight {
+	required int32 status = 1;
+	optional IdlePvideo video = 2;
+	repeated IdlePvideo videos = 3;
+	optional int32 cd = 4;
+}
+
+message IdleReqPlogs {
+	optional int32 id = 2;
+}
+
+message IdleRspPlogs {
+	required int32 status = 1;
+	repeated IdlePlog logs = 2;
+}
+
+message IdleReqPvpRank {
+	optional int32 id = 2;
+}
+
+message IdleRspPvpRank {
+	required int32 status = 1;
+	repeated IdlePmbr members = 2;
+}
+
+message IdleReqVideo {
+	optional int32 id = 1;
+	repeated int32 vid = 2;
+}
+
+message IdleRspVideo {
+	required sint32 status = 1;
+	optional IdlePvideo video = 2;
+}
+
+message IdleReqPvpTicket {
+	required int32 num = 1;
+}
+
+message IdleRspPvpTicket {
+	required int32 status = 1;
+}
+
+message IdleRspPmarket {
+	required sint32 status = 1;
+	repeated IdleHmarket item = 2;
+}
+
+message IdleReqPmarketBuy {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspPmarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspJoinpvpSync {
+	required sint32 status = 1;
+	optional IdlePmbr self = 2;
+}
+
+message IdleRspP3pSync {
+	required sint32 status = 1;
+	optional IdleP3pmbr self = 2;
+	repeated IdleP3pmbr members = 3;
+	optional int32 wid = 4;
+}
+
+message IdleReqP3pCamp {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspP3pCamp {
+	required sint32 status = 1;
+}
+
+message IdleRspP3pMatch {
+	required int32 status = 1;
+	repeated IdleP3pmbr def1 = 2;
+	repeated IdleP3pmbr def2 = 3;
+	repeated IdleP3pmbr def3 = 4;
+}
+
+message IdleReqP3pFight {
+	required int64 uid = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspP3pFight {
+	required int32 status = 1;
+	optional IdleP3pvideo video = 2;
+}
+
+message IdleReqP3pHonor {
+	required int32 wid = 1;
+}
+
+message IdleRspP3pHonor {
+	required int32 status = 1;
+	repeated IdleP3pmbr mbrs = 2;
+}
+
+message IdleRspP3pLogs {
+	required int32 status = 1;
+	repeated IdleP3plog logs = 2;
+}
+
+message IdleReqP3pVideo {
+	required int32 vid = 1;
+}
+
+message IdleRspP3pVideo {
+	required int32 status = 1;
+	optional IdleP3pvideo video = 2;
+}
+
+message IdleReqP3pInfo {
+	optional int64 uid = 1;
+}
+
+message IdleRspP3pInfo {
+	required int32 status = 1;
+	repeated IdleUnit unit = 2;
+}
+
+message IdleReqFpkCamp {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspFpkCamp {
+	required sint32 status = 1;
+}
+
+message IdleRspHtask {
+	required int32 cd = 1;
+	repeated IdleHtask tasks = 2;
+	repeated int32 heads = 3;
+	optional IdleBag reward = 4;
+	repeated int32 task_ids = 5;
+}
+
+message IdleReqHtaskStart {
+	required int32 tid = 1;
+	repeated int32 hids = 2;
+	repeated int32 heads = 3;
+}
+
+message IdleRspHtaskStart {
+	required sint32 status = 1;
+}
+
+message IdleReqHtaskSpeedup {
+	required int32 tid = 1;
+}
+
+message IdleRspHtaskSpeedup {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqHtaskRec {
+	required int32 tid = 1;
+}
+
+message IdleRspHtaskRec {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqHtaskGem {
+	optional sint32 star = 1;
+	optional int32 type = 2;
+}
+
+message IdleRspHtaskGem {
+	required sint32 status = 1;
+	repeated IdleHtask tasks = 2;
+}
+
+message IdleReqHtaskAdd {
+	required int32 ntype = 1;
+	optional int32 type = 2;
+}
+
+message IdleRspHtaskAdd {
+	required sint32 status = 1;
+	optional IdleHtask task = 2;
+}
+
+message IdleReqHtaskAuto {
+	optional int32 type = 1;
+	repeated IdleHtaskInfo info = 2;
+}
+
+message IdleRspHtaskAuto {
+	required sint32 status = 1;
+	repeated int32 tids = 2;
+}
+
+message IdleRspAchieve {
+	repeated int32 num = 1;
+	repeated int32 id = 2;
+}
+
+message IdleReqAchieveClaim {
+	required int32 id = 1;
+}
+
+message IdleRspAchieveClaim {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqAchievieAttention {
+	required int32 id = 1;
+}
+
+message IdleRspAchievieAttention {
+	required sint32 status = 1;
+}
+
+message IdleReqPay {
+	repeated string order = 1;
+	repeated int32 id = 2;
+	required string platform = 3;
+	optional string package = 4;
+	repeated string token = 5;
+	optional string appsflyer = 6;
+	optional string advertising = 7;
+	optional int32 vsn = 8;
+	repeated string store_currency = 9;
+	repeated string local_price = 10;
+}
+
+message IdleRspPay {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspFpay {
+	required sint32 status = 1;
+}
+
+message IdleReqPay2 {
+	required bytes data = 1;
+	optional int32 left = 2;
+}
+
+message IdleRspPay2 {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqGorder {
+	required int32 storeid = 1;
+	required int32 type = 2;
+	optional string device_info = 3;
+	optional string body = 4;
+	optional string subject = 5;
+	optional string extInfo = 6;
+}
+
+message IdleRspGorder {
+	required sint32 status = 1;
+	optional string order_info = 2;
+}
+
+message IdleReqGpay {
+	optional string orderid = 1;
+	optional string appsflyer = 2;
+	optional string advertising = 3;
+	optional string userid = 4;
+	optional string productid = 5;
+	optional string txid = 6;
+}
+
+message IdleRspGpay {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqChpay {
+	required int32 storeid = 1;
+	optional string store_country = 2;
+	optional string store_currency = 3;
+}
+
+message IdleRspChpay {
+	required int32 status = 1;
+	optional string token = 2;
+	optional string productid = 3;
+}
+
+message IdleReqAmznpay {
+	repeated string receiptid = 1;
+	optional string userid = 2;
+}
+
+message IdleRspAmznpay {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+	optional string money = 3;
+}
+
+message IdleReqOnepay {
+	repeated IdleOnepay items = 1;
+}
+
+message IdleRspOnepay {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+	optional string money = 3;
+}
+
+message IdleRspOneforum {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqGpay2 {
+	repeated string order = 1;
+	repeated string token = 2;
+	repeated string id = 3;
+	required string platform = 4;
+	optional string ext = 5;
+}
+
+message IdleRspGpay2 {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqVoucher {
+	required int32 storeid = 1;
+}
+
+message IdleRspVoucher {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqStoreinfo {
+	optional string store_country = 1;
+	optional string store_currency = 2;
+}
+
+message IdleReqHmarketBuy {
+	required int32 id = 1;
+}
+
+message IdleRspHmarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspHmarketSync {
+	required sint32 status = 1;
+	repeated IdleHmarket item = 2;
+}
+
+message IdleReqBraveMarketBuy {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspBraveMarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspBraveMarketSync {
+	required sint32 status = 1;
+	repeated IdleHmarket item = 2;
+}
+
+message IdleRspHmarketRefresh {
+	required sint32 status = 1;
+	repeated IdleHmarket item = 2;
+}
+
+message IdleReqAlogin {
+	required int32 id = 1;
+}
+
+message IdleRspAlogin {
+	required sint32 status = 1;
+	optional IdleBag bag = 2;
+}
+
+message IdleReqTaskClaim {
+	required int32 id = 1;
+}
+
+message IdleRspTaskClaim {
+	required sint32 status = 1;
+}
+
+message IdleReqOnlineClaim {
+	required int32 id = 1;
+}
+
+message IdleRspOnlineClaim {
+	required sint32 status = 1;
+	required IdleOnline online = 2;
+}
+
+message IdleRspTaskConvert {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqFeedback {
+	required string content = 1;
+}
+
+message IdleRspFeedback {
+	required sint32 status = 1;
+}
+
+message IdleReqGmarketBuy {
+	required int32 id = 1;
+}
+
+message IdleRspGmarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspGmarketSync {
+	required sint32 status = 1;
+	repeated IdleGmarket item = 2;
+}
+
+message IdleRspGmarketRefresh {
+	required sint32 status = 1;
+	repeated IdleGmarket item = 2;
+}
+
+message IdleReqGmarketExchange {
+	required int32 num = 1;
+}
+
+message IdleRspGmarketExchange {
+	required sint32 status = 1;
+}
+
+message IdleRspNgwSync {
+	required sint32 status = 1;
+	optional int32 cd = 2;
+	repeated IdleNgwshold sholds = 3;
+	optional int32 seg = 4;
+	optional int32 mid = 5;
+	optional int32 aflag = 6;
+	repeated int32 hids = 7;
+	repeated IdleNgwrank rank = 8;
+	repeated IdleUnit defcamp = 9;
+	optional int32 vary = 10;
+}
+
+message IdleRspNgwRank {
+	required sint32 status = 1;
+	repeated IdleNgwrank grank = 2;
+	repeated IdleNgwprank prank = 3;
+}
+
+message IdleReqNgwCamp {
+	optional int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspNgwCamp {
+	required sint32 status = 1;
+	repeated IdleNgwshold sholds = 2;
+}
+
+message IdleReqNgwShold {
+	optional int32 id = 1;
+}
+
+message IdleRspNgwShold {
+	required sint32 status = 1;
+	repeated IdleNgwmbr mbrs = 2;
+	repeated IdleNgwshold sholds = 3;
+	optional int32 mid = 4;
+}
+
+message IdleReqNgwFight {
+	optional int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspNgwFight {
+	required sint32 status = 1;
+	optional int32 destroy = 2;
+}
+
+message IdleRspNgwLup {
+	repeated int64 uids = 1;
+	repeated int32 powers = 2;
+}
+
+message IdleReqNgwSetup {
+	repeated int64 uids = 1;
+}
+
+message IdleRspNgwSetup {
+	required sint32 status = 1;
+	optional int32 cd = 2;
+}
+
+message IdleReqNgwBuy {
+	optional int32 id = 1;
+	optional int32 bid = 2;
+}
+
+message IdleRspNgwBuy {
+	required sint32 status = 1;
+	optional int32 aflag = 2;
+	repeated IdleNgwshold sholds = 3;
+}
+
+message IdleReqNgwInfo {
+	optional int64 uid = 1;
+}
+
+message IdleRspNgwInfo {
+	required int32 status = 1;
+	repeated IdleUnit unit = 2;
+}
+
+message IdleReqNgwVideo {
+	required int32 vid = 1;
+}
+
+message IdleRspNgwVideo {
+	required sint32 status = 1;
+	optional IdlePvideo video = 2;
+}
+
+message IdleReqNgwSweep {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspNgwSweep {
+	required sint32 status = 1;
+	repeated IdleNgwSweep s_info = 2;
+}
+
+message IdleRspCgwSync {
+	required sint32 status = 1;
+	optional int32 cd = 2;
+	optional int32 wid = 3;
+	optional int32 pnum = 4;
+	optional bool reg = 5;
+	repeated IdleCgwInfo info = 6;
+	repeated IdleUnit camp = 7;
+	optional string sdate = 8;
+	optional int32 flag = 9;
+}
+
+message IdleReqCgwTeam {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspCgwTeam {
+	required sint32 status = 1;
+}
+
+message IdleRspCgwReg {
+	required sint32 status = 1;
+}
+
+message IdleReqCgwHonor {
+	optional int32 wid = 1;
+}
+
+message IdleRspCgwHonor {
+	required sint32 status = 1;
+	repeated IdleCgwInfo info = 2;
+}
+
+message IdleRspCgwRecord {
+	required sint32 status = 1;
+	repeated IdleCgwRecord recs = 2;
+}
+
+message IdleRspCgwRace {
+	required int32 status = 1;
+	optional int32 flag = 2;
+	repeated IdleCgwInfo mbrs = 3;
+	repeated IdleClink link = 4;
+}
+
+message IdleReqCgwLog {
+	optional int32 vid = 1;
+}
+
+message IdleRspCgwLog {
+	required int32 status = 1;
+	repeated IdleCgwLog log = 2;
+}
+
+message IdleRspGpvpSync {
+	optional IdleGpvpteam team = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleReqGpvpSetCamp {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspGpvpSetCamp {
+	required sint32 status = 1;
+}
+
+message IdleReqCreateGpvpteam {
+	required string name = 1;
+	optional int32 need_power = 2;
+}
+
+message IdleRspCreateGpvpteam {
+	required sint32 status = 1;
+	optional int32 id = 2;
+}
+
+message IdleRspDismissGpvpteam {
+	required sint32 status = 1;
+}
+
+message IdleRspGpvpMatch {
+	repeated IdleGpvpteam teams = 1;
+}
+
+message IdleRspSubmitGpvpteam {
+	required sint32 status = 1;
+}
+
+message IdleReqGpvpLeaderop {
+	required int32 type = 1;
+	required int32 uid = 2;
+}
+
+message IdleRspGpvpLeaderop {
+	required sint32 status = 1;
+}
+
+message IdleRspGpvpFriendslist {
+	repeated IdleFrd friends = 1;
+}
+
+message IdleRspGpvpteamNotify {
+	optional int32 invited = 1;
+	optional int32 agree_invite = 2;
+	optional int32 leave = 3;
+	optional int32 apply = 4;
+	optional int32 agreed = 5;
+	optional int32 kicked = 6;
+	optional int32 submit = 7;
+	optional int32 dismiss = 8;
+	optional int32 owner = 9;
+}
+
+message IdleRspGpvpInvitelist {
+	repeated IdleGpvpteam team = 1;
+}
+
+message IdleRspGpvpRefresh {
+	repeated IdleGpvpteam team = 1;
+}
+
+message IdleReqGpvpMbrop {
+	required int32 type = 1;
+	required int32 teamid = 2;
+}
+
+message IdleRspGpvpMbrop {
+	required sint32 status = 1;
+}
+
+message IdleRspGpvpRanklist {
+	required sint32 status = 1;
+	repeated IdleGpvpteam team = 2;
+}
+
+message IdleReqChangeGpvpteam {
+	repeated int32 team = 1;
+}
+
+message IdleRspChangeGpvpteam {
+	required sint32 status = 1;
+}
+
+message IdleRspGpvpApplylist {
+	repeated IdlePmbr mbrs = 1;
+}
+
+message IdleReqGpvpMbr {
+	required int32 uid = 1;
+}
+
+message IdleRspGpvpMbr {
+	required sint32 status = 1;
+	optional IdlePmbr mbr = 2;
+}
+
+message IdleReqGpvpGrp {
+	required int32 grp_id = 1;
+}
+
+message IdleRspGpvpGrp {
+	required sint32 status = 1;
+	optional IdleGpvpteam grp = 2;
+}
+
+message IdleReqGpvpFight {
+	required int32 grp_id = 1;
+}
+
+message IdleRspGpvpFight {
+	required sint32 status = 1;
+	optional IdleGpvpteam atk = 2;
+	optional IdleGpvpteam def = 3;
+	repeated bool wins = 4;
+	repeated bytes frames1 = 5;
+	repeated bytes frames2 = 6;
+	repeated bytes frames3 = 7;
+	repeated IdleHurts hurts1 = 8;
+	repeated IdleHurts hurts2 = 9;
+	repeated IdleHurts hurts3 = 10;
+	optional sint32 ascore = 11;
+	optional sint32 dscore = 12;
+	optional sint32 adelta = 13;
+	optional sint32 ddelta = 14;
+}
+
+message IdleRspGpvpLogs {
+	repeated IdleGpvplog logs = 1;
+}
+
+message IdleReqGpvpWlog {
+	required int32 log_id = 1;
+}
+
+message IdleRspGpvpWlog {
+	required sint32 status = 1;
+	optional IdleGpvpWlog log = 2;
+}
+
+message IdleReqGpvpVideo {
+	required int32 vid = 1;
+}
+
+message IdleRspGpvpVideo {
+	required sint32 status = 1;
+	repeated bytes frames = 2;
+	repeated IdleHurts hurts = 3;
+}
+
+message IdleReqPetOp {
+	required int32 id = 1;
+	required int32 opcode = 2;
+	optional int32 skl = 3;
+}
+
+message IdleRspPetOp {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspSpkSync {
+	required int32 status = 1;
+	required int32 cd = 2;
+	repeated IdleSpkunit camp = 3;
+	optional uint32 estage = 4;
+	repeated uint32 ehpp = 5;
+	optional int32 seller = 6;
+	optional int32 wave = 7;
+	repeated int32 sellers = 8;
+	repeated IdleItem bufs = 9;
+}
+
+message IdleReqSpkCamp {
+	repeated int32 hids = 1;
+}
+
+message IdleRspSpkCamp {
+	required sint32 status = 1;
+	optional uint32 nstage = 2;
+	optional uint32 wave = 3;
+	repeated IdleItem bufs = 4;
+	repeated int32 sellers = 5;
+	optional IdleBag reward = 6;
+}
+
+message IdleReqSpkFight {
+	required int32 hid = 1;
+}
+
+message IdleRspSpkFight {
+	required sint32 status = 1;
+	required bool win = 2;
+	repeated bytes frames = 3;
+	optional int32 mhpp = 4;
+	optional int32 menergy = 5;
+	repeated int32 ehpp = 6;
+	optional IdleBag reward = 7;
+	optional int32 buf = 8;
+	optional int32 seller = 9;
+	optional int32 nstage = 10;
+}
+
+message IdleReqSpkBuf {
+	optional int32 buf = 1;
+	optional int32 hid = 2;
+	optional int32 save = 3;
+}
+
+message IdleRspSpkBuf {
+	required sint32 status = 1;
+	optional int32 nstage = 2;
+}
+
+message IdleRspSpkRank {
+	required int32 rank = 1;
+	repeated IdleSpkmbr mbr = 2;
+	optional int32 wave = 3;
+	optional int32 time = 4;
+}
+
+message IdleReqSpkBuy {
+	optional int32 id = 1;
+	optional int32 count = 2;
+	optional int32 skip = 3;
+	optional int32 variety = 4;
+}
+
+message IdleRspSpkBuy {
+	required sint32 status = 1;
+	optional int32 nstage = 2;
+}
+
+message IdleReqSpkSave {
+	required int32 buf = 1;
+}
+
+message IdleRspSpkSave {
+	required sint32 status = 1;
+	optional int32 nstage = 2;
+}
+
+message IdleReqBbossSyn {
+	required int32 id = 1;
+}
+
+message IdleRspBbossSyn {
+	required sint32 status = 1;
+	optional int32 id = 2;
+	optional int32 hp = 3;
+}
+
+message IdleReqBbossBuy {
+	required int32 num = 1;
+}
+
+message IdleRspBbossBuy {
+	required sint32 status = 1;
+}
+
+message IdleReqBbossFight {
+	repeated IdleUnit camp = 1;
+	required int32 id = 2;
+}
+
+message IdleRspBbossFight {
+	required sint32 status = 1;
+	optional bool win = 2;
+	repeated bytes frames = 3;
+	repeated int32 hpps = 4;
+	repeated IdleBag rewards = 5;
+	repeated IdleHurts hurts = 6;
+	optional int32 select = 7;
+}
+
+message IdleReqBbossBatch {
+	repeated IdleUnit camp = 1;
+	required int32 id = 2;
+	required int32 num = 3;
+}
+
+message IdleRspBbossBatch {
+	required sint32 status = 1;
+	optional bool win = 2;
+	repeated int32 hpps = 3;
+	optional IdleBag reward = 4;
+	optional int32 num = 5;
+}
+
+message IdleRspIslandSync {
+	required int32 status = 1;
+	optional int32 id = 2;
+	optional IdleVit vit = 3;
+	repeated IdleHoly holy = 4;
+	repeated IdleMine mine = 5;
+	repeated IdleHoly stove = 6;
+	repeated IdleHoly statue = 7;
+	optional IdleIpro pitem = 8;
+}
+
+message IdleRspIslandTower {
+	required int32 status = 1;
+}
+
+message IdleReqIslandOp {
+	required int32 type = 1;
+	required int32 act = 2;
+	required int32 id = 3;
+	required int32 pos = 4;
+}
+
+message IdleRspIslandOp {
+	required int32 status = 1;
+	optional IdleBag item = 2;
+	optional int32 vit = 3;
+}
+
+message IdleReqIslandLand {
+	required int32 pos = 1;
+}
+
+message IdleRspIslandLand {
+	required int32 status = 1;
+	optional IdleVit vit = 2;
+	repeated IdleLand land = 3;
+	optional bool dead = 4;
+}
+
+message IdleReqIslandBox {
+	required int32 pos = 1;
+}
+
+message IdleRspIslandBox {
+	required int32 status = 1;
+	optional IdleBag reward = 2;
+	optional IdleLand land = 3;
+}
+
+message IdleReqIslandNpc {
+	required int32 pos = 1;
+}
+
+message IdleRspIslandNpc {
+	required int32 status = 1;
+	optional int32 id = 2;
+	optional int32 help = 3;
+	repeated int32 hp = 4;
+}
+
+message IdleRspIslandBoss {
+	required int32 status = 1;
+	optional int32 id = 2;
+	optional int32 help = 3;
+	repeated int32 hp = 4;
+	optional int32 cd = 5;
+}
+
+message IdleReqIslandFight {
+	required int32 pos = 1;
+	optional int64 frd = 2;
+	optional int32 cdk = 3;
+	repeated IdleUnit camp = 4;
+}
+
+message IdleRspIslandFight {
+	required int32 status = 1;
+	optional bool win = 2;
+	repeated bytes frames = 3;
+	optional IdleBag reward = 4;
+	repeated int32 hpps = 5;
+	repeated IdleHurts hurts = 6;
+	repeated IdleUnit camp = 7;
+}
+
+message IdleRspIslandBuy {
+	required int32 status = 1;
+	optional int32 vit = 2;
+}
+
+message IdleReqIslandBatch {
+	required int32 num = 1;
+	repeated IdleUnit camp = 2;
+	optional int32 pos = 3;
+}
+
+message IdleRspIslandBatch {
+	required int32 status = 1;
+	repeated int32 hpps = 2;
+	optional int32 num = 3;
+	optional IdleBag reward = 4;
+}
+
+message IdleReqIslandSweep {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspIslandSweep {
+	required int32 status = 1;
+	optional int32 num = 2;
+	repeated int32 poss = 3;
+	optional IdleBag reward = 4;
+}
+
+message IdleRspIslandBget {
+	required int32 status = 1;
+	optional IdleBag item = 2;
+	optional int32 vit = 3;
+}
+
+message IdleRspIboatSync {
+	required int32 status = 1;
+	optional IdleIadt adt = 2;
+	repeated int32 rts = 3;
+	optional IdleIboat boat = 4;
+	repeated IdleUnit camp = 5;
+	optional IdleBag reward = 6;
+	repeated int32 evtids = 7;
+}
+
+message IdleReqIboatStart {
+	optional int32 rt = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspIboatStart {
+	required int32 status = 1;
+}
+
+message IdleRspIboatXp {
+	required int32 status = 1;
+	optional IdleIevent mevt = 2;
+}
+
+message IdleReqIboatXpop {
+	optional int32 type = 1;
+	repeated IdleUnit camp = 2;
+	optional int32 atkid = 3;
+}
+
+message IdleRspIboatXpop {
+	required int32 status = 1;
+	optional IdleBag reward = 2;
+	optional IdlePvideo video = 3;
+}
+
+message IdleRspIboatShop {
+	required int32 status = 1;
+	repeated IdleGood good = 2;
+}
+
+message IdleReqIboatBuy {
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspIboatBuy {
+	required int32 status = 1;
+}
+
+message IdleRspIboatArm {
+	required int32 status = 1;
+	optional int32 arm = 2;
+}
+
+message IdleReqIboatSkl {
+	optional int32 id = 1;
+}
+
+message IdleRspIboatSkl {
+	required int32 status = 1;
+}
+
+message IdleReqIboatName {
+	optional string name = 1;
+}
+
+message IdleRspIboatName {
+	required int32 status = 1;
+}
+
+message IdleRspIboatFsync {
+	required int32 status = 1;
+	repeated IdleIpro info = 2;
+}
+
+message IdleReqIboatFpro {
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspIboatFpro {
+	required int32 status = 1;
+}
+
+message IdleReqIboatUse {
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspIboatUse {
+	required int32 status = 1;
+}
+
+message IdleReqBeatNien {
+	required int32 id = 1;
+	required int32 key = 2;
+}
+
+message IdleRspBeatNien {
+	required int32 status = 1;
+	optional IdleBag reward = 3;
+	optional int32 hpp = 2;
+}
+
+message IdleReqActivity {
+	repeated int32 ids = 1;
+}
+
+message IdleRspActivity {
+	required int32 status = 1;
+}
+
+message IdleReqActivitySign {
+	required int32 id = 1;
+}
+
+message IdleRspActivitySign {
+	required int32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqFetchActivity {
+	optional int32 id = 1;
+}
+
+message IdleRspFetchActivity {
+	required sint32 status = 1;
+	optional IdleAct act = 2;
+}
+
+message IdleReqForgeArtifact {
+	required int32 id = 1;
+	required int32 mid = 2;
+	required int32 eid = 3;
+}
+
+message IdleRspForgeArtifact {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqCrackArtifact {
+	repeated IdleEquip ids = 1;
+}
+
+message IdleRspCrackArtifact {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqMonopolyDice {
+	required int32 type = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspMonopolyDice {
+	required sint32 status = 1;
+	repeated IdleMonopolyStep steps = 2;
+	optional int32 num1 = 3;
+	optional int32 num2 = 4;
+}
+
+message IdleReqBuyDice {
+	optional int32 num = 1;
+}
+
+message IdleRspBuyDice {
+	required sint32 status = 1;
+	optional IdleBag rewards = 2;
+}
+
+message IdleReqHeroForever {
+	optional int32 id = 1;
+	optional int32 actid = 2;
+}
+
+message IdleRspHeroForever {
+	required sint32 status = 1;
+	optional sint32 id = 2;
+	repeated IdleHero heroes = 3;
+	repeated IdleItem items = 4;
+}
+
+message IdleReqYoutuber {
+	optional int32 id = 1;
+}
+
+message IdleRspYoutuber {
+	required sint32 status = 1;
+}
+
+message IdleRspYoutuberRefresh {
+	required sint32 status = 1;
+	optional int32 left = 2;
+	optional int32 right = 3;
+}
+
+message IdleReqForgeBack {
+	required int32 id = 1;
+	required int32 mid = 2;
+}
+
+message IdleRspForgeBack {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqGoldCard {
+	required int32 id = 1;
+}
+
+message IdleRspGoldCard {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspLimitGiftActivate {
+	required sint32 status = 1;
+}
+
+message IdleReqFollow {
+	required int32 id = 1;
+}
+
+message IdleRspFollow {
+	required sint32 status = 1;
+}
+
+message IdleReqMazeOpen {
+	required int32 pos = 1;
+	optional int32 reward = 2;
+}
+
+message IdleRspMazeOpen {
+	required sint32 status = 1;
+	optional IdleActMaze maze = 2;
+	optional IdleActBlock event = 3;
+	optional IdleBag reward = 4;
+}
+
+message IdleReqMazeChangeHero {
+	required int32 id = 1;
+}
+
+message IdleRspMazeChangeHero {
+	required sint32 status = 1;
+}
+
+message IdleRspMazeOpen2 {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleReqMazeBuy {
+	required int32 num = 1;
+}
+
+message IdleRspMazeBuy {
+	required sint32 status = 1;
+}
+
+message IdleReqMazeSync {
+	required int32 actid = 1;
+}
+
+message IdleRspMazeSync {
+	required sint32 status = 1;
+	optional IdleActMaze maze = 2;
+}
+
+message IdleReqMazeBreak {
+	required int32 type = 1;
+	optional int32 pos = 2;
+}
+
+message IdleRspMazeBreak {
+	required sint32 status = 1;
+	repeated IdleActBlock events = 2;
+}
+
+message IdleReqFetchSact {
+	required int32 id = 1;
+}
+
+message IdleRspFetchSact {
+	required sint32 status = 1;
+	optional IdleSactItem sact = 2;
+}
+
+message IdleReqHtaskCommit {
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspHtaskCommit {
+	required sint32 status = 1;
+}
+
+message IdleReqMonthmarketBuy {
+	required int32 id = 1;
+}
+
+message IdleRspMonthmarketBuy {
+	required sint32 status = 1;
+}
+
+message IdleRspMonthmarketSync {
+	required sint32 status = 1;
+	repeated IdleHmarket mpiece = 2;
+	repeated IdleHmarket mequip = 3;
+	repeated IdleHmarket mskin = 4;
+	repeated IdleHmarket mlimit = 5;
+}
+
+message IdleRspReSync {
+	required sint32 status = 1;
+	optional IdleReSync re_sync = 2;
+}
+
+message IdleReqReCode {
+	required string code = 1;
+}
+
+message IdleRspReCode {
+	required sint32 status = 1;
+}
+
+message IdleReqReBind {
+	required int64 uid = 1;
+	required int32 type = 2;
+}
+
+message IdleRspReBind {
+	required sint32 status = 1;
+}
+
+message IdleReqSactSummerBuy {
+	required int32 id = 1;
+}
+
+message IdleRspSactSummerBuy {
+	required int32 status = 1;
+}
+
+message IdleReqHeroLog {
+	required int32 type = 1;
+}
+
+message IdleRspHeroLog {
+	repeated IdleCasinoItem items = 1;
+}
+
+message IdleReqTutorial {
+	required int32 type = 1;
+}
+
+message IdleRspTutorial {
+	required sint32 status = 1;
+}
+
+message IdleReqRactReceive {
+	required int32 type = 1;
+	optional int32 id = 2;
+}
+
+message IdleRspRactReceive {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspRactPower {
+	required sint32 status = 1;
+	optional int32 power = 2;
+}
+
+message IdleRspWsync {
+	required sint32 status = 1;
+	optional int32 power = 2;
+	optional int32 score = 3;
+	optional int32 rank1 = 4;
+	optional int32 num = 5;
+	optional int32 zid = 6;
+	optional int32 top_score = 7;
+	repeated IdleWmbr mbr1 = 8;
+	repeated IdleWmbr mbr2 = 9;
+	repeated int32 task_nums = 10;
+	repeated int32 ids = 11;
+	repeated IdleUnit camp = 12;
+	repeated IdleUnit enemy_unit = 13;
+	optional IdleWmbr enemy_def = 14;
+	optional int32 enemy_cd = 15;
+	optional bool king = 16;
+	optional bool top_king = 17;
+	optional int32 znum = 18;
+	optional int32 enemy_num = 19;
+	optional int32 rank2 = 20;
+	optional string sdate = 21;
+}
+
+message IdleReqWhonor {
+	required int32 wid = 1;
+}
+
+message IdleRspWhonor {
+	required int32 status = 1;
+	repeated IdleWmbr mbrs = 2;
+	repeated IdleWcamp camp = 3;
+	repeated IdleLink link = 4;
+}
+
+message IdleReqWdaily {
+	required int32 id = 1;
+}
+
+message IdleRspWdaily {
+	required int32 status = 1;
+}
+
+message IdleRspWmatch {
+	required int32 status = 1;
+	repeated IdleUnit unit = 2;
+	optional IdleWmbr def = 3;
+	optional int32 cd = 4;
+	optional int32 num = 5;
+}
+
+message IdleReqWcamp {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspWcamp {
+	required int32 status = 1;
+}
+
+message IdleRspWfight {
+	required int32 status = 1;
+	optional IdleWmbr mbr = 2;
+	repeated IdleWvideo video = 3;
+	optional IdleWscore atk = 4;
+	repeated bool wins = 5;
+	optional int32 select = 6;
+	repeated IdleBag rewards = 7;
+}
+
+message IdleReqWlike {
+	optional int64 uid = 1;
+}
+
+message IdleRspWlike {
+	required int32 status = 1;
+}
+
+message IdleReqWinfo {
+	optional int64 uid = 1;
+}
+
+message IdleRspWinfo {
+	required int32 status = 1;
+	repeated IdleUnit unit = 2;
+}
+
+message IdleReqWzone {
+	optional int32 zid = 1;
+	optional int32 link = 2;
+}
+
+message IdleRspWzone {
+	required int32 status = 1;
+	optional int32 flag = 2;
+	optional int32 num = 3;
+	repeated IdleWmbr mbrs = 4;
+	repeated IdleLink link = 5;
+}
+
+message IdleRspWloger1 {
+	required int32 status = 1;
+	repeated IdleWloger logs = 2;
+}
+
+message IdleReqWlog1 {
+	required int64 id = 1;
+}
+
+message IdleRspWlog1 {
+	required int32 status = 1;
+	repeated IdleWlog logs = 2;
+}
+
+message IdleReqWvideo1 {
+	required int64 id = 1;
+}
+
+message IdleRspWvideo1 {
+	required int32 status = 1;
+	optional IdleWvideo video = 2;
+}
+
+message IdleReqWlog2 {
+	required int64 id = 1;
+}
+
+message IdleRspWlog2 {
+	required int32 status = 1;
+	optional int32 atk = 2;
+	optional int32 def = 3;
+	repeated IdleWlog logs = 4;
+}
+
+message IdleReqWvideo2 {
+	required int64 id = 1;
+}
+
+message IdleRspWvideo2 {
+	required int32 status = 1;
+	optional IdleWvideo video = 2;
+}
+
+message IdleRspStSync {
+	repeated int32 rates = 1;
+	required int32 id1 = 2;
+	required int32 id2 = 3;
+	required int32 times = 4;
+	required int32 flag = 5;
+}
+
+message IdleReqStSummon {
+	required int32 type = 1;
+}
+
+message IdleRspStSummon {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+	repeated IdleItem items = 3;
+	repeated int32 rates = 4;
+	optional int32 times = 5;
+}
+
+message IdleReqStSchange {
+	required int32 id1 = 1;
+	required int32 id2 = 2;
+}
+
+message IdleRspStSchange {
+	required sint32 status = 1;
+}
+
+message IdleRspStRank {
+	required sint32 status = 1;
+	repeated IdleSmbrs mbrs = 2;
+}
+
+message IdleReqStHforge {
+	repeated int32 hids = 1;
+	required int32 hero_id = 2;
+	required int32 type = 3;
+}
+
+message IdleRspStHforge {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+}
+
+message IdleReqStHattrup {
+	required int32 hid = 1;
+	required int32 id = 2;
+}
+
+message IdleRspStHattrup {
+	required sint32 status = 1;
+}
+
+message IdleReqStHattrchange {
+	required int32 hid = 1;
+	required int32 id = 2;
+	required int32 attr_id = 3;
+}
+
+message IdleRspStHattrchange {
+	required sint32 status = 1;
+}
+
+message IdleReqStHattractivate {
+	required int32 hid = 1;
+	required int32 id = 2;
+	required int32 src_hid = 3;
+}
+
+message IdleRspStHattractivate {
+	required sint32 status = 1;
+	optional IdleBag items = 2;
+}
+
+message IdleRspStVsync {
+	required sint32 status = 1;
+	optional sint32 floor = 2;
+	optional sint32 dty = 3;
+	optional sint32 cd = 4;
+	optional IdleBag reward1 = 5;
+	repeated IdleVbuff buf1 = 6;
+	repeated IdleVbuff buf2 = 7;
+	optional IdleBag reward2 = 8;
+	repeated int32 hids = 9;
+	repeated IdleScell cells = 10;
+	optional sint32 vit = 11;
+	optional sint32 mid = 12;
+	repeated IdleScell old_cells = 13;
+	repeated int32 jw = 14;
+	optional sint32 mdty = 15;
+	optional sint32 cd2 = 16;
+	optional bool first = 17;
+	optional sint32 svit = 18;
+	optional sint32 mcard = 19;
+}
+
+message IdleReqStVsync2 {
+	optional int32 pos = 1;
+}
+
+message IdleRspStVsync2 {
+	required sint32 status = 1;
+	optional int32 id = 2;
+	repeated IdleScell events = 3;
+	repeated IdleScell old_evts = 4;
+}
+
+message IdleReqStVevent {
+	optional int32 pos = 1;
+	repeated int32 ids = 2;
+	repeated IdleUnit camp = 3;
+}
+
+message IdleRspStVevent {
+	required sint32 status = 1;
+	optional IdleEvideo video = 2;
+	repeated int32 ids = 3;
+	repeated int32 hps = 4;
+	optional IdleScell new_evt = 5;
+}
+
+message IdleReqStVdiff {
+	optional sint32 diff = 1;
+}
+
+message IdleRspStVdiff {
+	required sint32 status = 1;
+}
+
+message IdleReqStHeartresolve {
+	repeated int32 ids = 1;
+}
+
+message IdleRspStHeartresolve {
+	required sint32 status = 1;
+	repeated IdleItem items = 2;
+}
+
+message IdleReqStVwipe {
+	repeated int32 poslist = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspStVwipe {
+	required sint32 status = 1;
+	optional int32 cd = 2;
+}
+
+message IdleReqStVuseitem {
+	optional int32 id = 1;
+}
+
+message IdleRspStVuseitem {
+	required sint32 status = 1;
+	repeated int32 pos = 2;
+}
+
+message IdleRspStEsync {
+	required sint32 status = 1;
+	optional int32 cd = 2;
+	repeated IdleDup dups = 3;
+	optional int32 vit = 4;
+	optional int32 vit_num = 5;
+	optional int32 vit_cd = 6;
+	optional int32 buy_num = 7;
+	optional int32 item_bnum = 8;
+	optional int32 item_rnum = 9;
+	optional int32 red_dot = 10;
+	optional IdleBag reward = 11;
+}
+
+message IdleReqStEbuy {
+	required int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleRspStEbuy {
+	required sint32 status = 1;
+}
+
+message IdleReqStEuse {
+	required int32 id = 1;
+}
+
+message IdleRspStEuse {
+	required sint32 status = 1;
+	optional int32 id = 2;
+}
+
+message IdleReqStEfight {
+	repeated IdleUnit camp = 1;
+	optional int32 id = 2;
+}
+
+message IdleRspStEfight {
+	required sint32 status = 1;
+	optional IdleEvideo video = 2;
+	optional int32 num = 3;
+}
+
+message IdleRspStErank1 {
+	required sint32 status = 1;
+	repeated IdleEmbr mbrs = 2;
+}
+
+message IdleRspStErank2 {
+	required sint32 status = 1;
+	optional IdleSmbrs mbrs = 2;
+}
+
+message IdleReqStEget {
+	required int32 id = 1;
+}
+
+message IdleRspStEget {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspStEopen {
+	required sint32 status = 1;
+	repeated IdleDup dups = 2;
+}
+
+message IdleRspStAsync {
+	required sint32 status = 1;
+	optional int32 vdot = 2;
+	optional int32 edot = 3;
+	optional int32 eopen = 4;
+	optional int32 tdot = 5;
+	optional int32 sdot = 6;
+}
+
+message IdleReqStErefresh {
+	required int32 id = 1;
+}
+
+message IdleRspStErefresh {
+	required sint32 status = 1;
+	optional IdleDup dup = 2;
+}
+
+message IdleReqStHattrreset {
+	required int32 hid = 1;
+}
+
+message IdleRspStHattrreset {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+	optional IdleBag items = 3;
+}
+
+message IdleRspStTback {
+	required sint32 status = 1;
+}
+
+message IdleReqStChangenight {
+	required int32 flag = 1;
+}
+
+message IdleRspStChangenight {
+	required sint32 status = 1;
+}
+
+message IdleReqStStarresolve {
+	required int32 num = 1;
+	required int32 flag = 2;
+}
+
+message IdleRspStStarresolve {
+	required sint32 status = 1;
+	repeated IdleItem items = 2;
+}
+
+message IdleRspStowerSync {
+	required sint32 status = 1;
+	optional int32 hatch = 3;
+	optional int32 egg_id = 4;
+	optional sint32 count = 5;
+}
+
+message IdleReqStowerUp {
+	required int32 lv = 1;
+}
+
+message IdleRspStowerUp {
+	required sint32 status = 1;
+}
+
+message IdleReqStowerHatch {
+	required int32 egg_id = 1;
+}
+
+message IdleRspStowerHatch {
+	required sint32 status = 1;
+}
+
+message IdleReqStowerHover {
+	required sint32 type = 1;
+	required int32 rmb = 2;
+}
+
+message IdleRspStowerHover {
+	required sint32 status = 1;
+	optional sint32 id = 2;
+	optional IdleBag reward = 3;
+}
+
+message IdleReqSpetUp {
+	required sint32 id = 1;
+}
+
+message IdleRspSpetUp {
+	required sint32 status = 1;
+}
+
+message IdleRspStSsync {
+	required sint32 status = 1;
+	optional sint32 cd = 2;
+	optional sint32 g_num = 3;
+	optional sint32 lv_item = 4;
+	optional sint32 map_id = 5;
+	optional sint32 map_lv = 6;
+	optional IdleSbuilding collect = 7;
+	optional IdleSbuilding vit = 8;
+	repeated IdleGskl skl = 9;
+	optional sint32 map_cur_lv = 10;
+	optional sint32 rank = 11;
+	optional bool flag = 12;
+	optional int32 map_dot = 13;
+	optional int32 reward_lv_item = 14;
+}
+
+message IdleReqStSlvup {
+	required int32 id = 1;
+}
+
+message IdleRspStSlvup {
+	required sint32 status = 1;
+}
+
+message IdleReqStSsweep {
+	repeated IdleSssweep list = 1;
+	repeated IdleUnit camp = 2;
+	optional bool flag = 3;
+}
+
+message IdleRspStSsweep {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+	repeated IdleSsevent event = 3;
+}
+
+message IdleReqStSsklup {
+	required int32 id = 1;
+}
+
+message IdleRspStSsklup {
+	required sint32 status = 1;
+}
+
+message IdleReqStSstore {
+	required int32 id = 1;
+}
+
+message IdleRspStSstore {
+	required sint32 status = 1;
+	repeated IdleGmarket good = 2;
+}
+
+message IdleReqStSbuy {
+	required int32 id = 1;
+	required int32 num = 2;
+}
+
+message IdleRspStSbuy {
+	required sint32 status = 1;
+}
+
+message IdleReqStSmapUnlock {
+	required int32 id = 1;
+}
+
+message IdleRspStSmapUnlock {
+	required sint32 status = 1;
+}
+
+message IdleReqStSmapSync {
+	required int32 id = 1;
+}
+
+message IdleRspStSmapSync {
+	required sint32 status = 1;
+	optional sint32 line_id = 2;
+	optional sint32 lv_item = 3;
+	repeated int32 hids = 4;
+	optional IdleBag reward = 5;
+	repeated IdleSscell cells = 6;
+	repeated IdleUnit team = 7;
+	repeated IdleSsevent event = 8;
+	optional int32 rob_num = 9;
+	optional int32 mcard = 10;
+}
+
+message IdleReqStScellUnlock {
+	required int32 id = 1;
+}
+
+message IdleRspStScellUnlock {
+	required sint32 status = 1;
+	optional sint32 lv_item = 2;
+	optional IdleSscell cell = 3;
+	optional IdleBag reward = 4;
+}
+
+message IdleReqStScellDisp {
+	required int32 id = 1;
+	required int32 hid = 2;
+}
+
+message IdleRspStScellDisp {
+	required sint32 status = 1;
+	optional sint32 cd = 2;
+}
+
+message IdleReqStScellFight {
+	required int32 id = 1;
+	repeated IdleUnit camp = 2;
+}
+
+message IdleRspStScellFight {
+	required sint32 status = 1;
+	optional sint32 cd = 2;
+	optional sint32 lv_item = 3;
+	repeated sint32 boss_hp = 4;
+	optional IdlePvideo video = 5;
+}
+
+message IdleReqStSmapSett {
+	required int32 id = 1;
+}
+
+message IdleRspStSmapSett {
+	required sint32 status = 1;
+	repeated IdleSsevent event = 2;
+	optional int32 sett = 3;
+}
+
+message IdleReqStSmapTeam {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleRspStSmapTeam {
+	required int32 status = 1;
+}
+
+message IdleRspStSmapRank {
+	required int32 status = 1;
+	optional int32 rank = 2;
+	optional int32 score = 3;
+	repeated IdleP3pmbr members = 4;
+}
+
+message IdleReqStSmapMbr {
+	required int64 uid = 1;
+}
+
+message IdleRspStSmapMbr {
+	required sint32 status = 1;
+	optional IdlePmbr mbr = 2;
+}
+
+message IdleRspStSclick {
+	required sint32 status = 1;
+}
+
+message IdleReqStHchange {
+	required int32 hostHid = 1;
+	required int32 hid = 2;
+}
+
+message IdleRspStHchange {
+	required sint32 status = 1;
+	repeated IdleHero heroes = 2;
+	optional IdleBag items = 3;
+}
+
+message IdleReqSpetReset {
+	required sint32 id = 1;
+}
+
+message IdleRspSpetReset {
+	required sint32 status = 1;
+	optional IdleBag reward = 2;
+}
+
+message IdleRspNtaskSync {
+	required sint32 status = 1;
+	repeated IdleNtask tasks = 2;
+	repeated IdleNtSync data = 3;
+}
+
+message IdleReqNtaskClaim {
+	required sint32 id = 1;
+}
+
+message IdleRspNtaskClaim {
+	required sint32 status = 1;
+	optional IdleBag items = 2;
+}
+
+message IdleReqServers { }
+
+message IdleReqSmsg { }
+
+message IdleReqBuyHlimit { }
+
+message IdleReqEquipSoulSync { }
+
+message IdleReqSyncChat { }
+
+message IdleReqHideVip { }
+
+message IdleReqGetBlockChat { }
+
+message IdleReqHookInit { }
+
+message IdleReqHookAsk { }
+
+message IdleReqSyncBrave { }
+
+message IdleReqPveRank { }
+
+message IdleReqSealandSync { }
+
+message IdleReqBraveSweep { }
+
+message IdleReqFrdSync { }
+
+message IdleReqFrdAdvise { }
+
+message IdleReqGuildSync { }
+
+message IdleReqGuildRank { }
+
+message IdleReqGlog { }
+
+message IdleReqGuildLeave { }
+
+message IdleReqGuildSign { }
+
+message IdleReqGuildRecommend { }
+
+message IdleReqGuildAppliers { }
+
+message IdleReqGbossSync { }
+
+message IdleReqGsklSync { }
+
+message IdleReqGfireSync { }
+
+message IdleReqGfireReg { }
+
+message IdleReqGfireRank { }
+
+message IdleReqGveSync { }
+
+message IdleReqGveRank { }
+
+message IdleReqGveClaim { }
+
+message IdleReqTrial { }
+
+message IdleReqTrialRank { }
+
+message IdleReqTrialVideo { }
+
+message IdleReqPvpSync { }
+
+message IdleReqPmarket { }
+
+message IdleReqJoinpvpSync { }
+
+message IdleReqP3pSync { }
+
+message IdleReqP3pMatch { }
+
+message IdleReqP3pLogs { }
+
+message IdleReqHtask { }
+
+message IdleReqAchieve { }
+
+message IdleReqFpay { }
+
+message IdleReqOneforum { }
+
+message IdleRspStoreinfo { }
+
+message IdleReqHmarketSync { }
+
+message IdleReqBraveMarketSync { }
+
+message IdleReqHmarketRefresh { }
+
+message IdleReqTaskConvert { }
+
+message IdleReqGmarketSync { }
+
+message IdleReqGmarketRefresh { }
+
+message IdleReqNgwSync { }
+
+message IdleReqNgwRank { }
+
+message IdleReqNgwLup { }
+
+message IdleReqCgwSync { }
+
+message IdleReqCgwReg { }
+
+message IdleReqCgwRecord { }
+
+message IdleReqCgwRace { }
+
+message IdleReqGpvpSync { }
+
+message IdleReqDismissGpvpteam { }
+
+message IdleReqGpvpMatch { }
+
+message IdleReqSubmitGpvpteam { }
+
+message IdleReqGpvpFriendslist { }
+
+message IdleReqGpvpInvitelist { }
+
+message IdleReqGpvpRefresh { }
+
+message IdleReqGpvpRanklist { }
+
+message IdleReqGpvpApplylist { }
+
+message IdleReqGpvpLogs { }
+
+message IdleReqSpkSync { }
+
+message IdleReqSpkRank { }
+
+message IdleReqIslandSync { }
+
+message IdleReqIslandTower { }
+
+message IdleReqIslandBoss { }
+
+message IdleReqIslandBuy { }
+
+message IdleReqIslandBget { }
+
+message IdleReqIboatSync { }
+
+message IdleReqIboatXp { }
+
+message IdleReqIboatShop { }
+
+message IdleReqIboatArm { }
+
+message IdleReqIboatFsync { }
+
+message IdleReqYoutuberRefresh { }
+
+message IdleReqLimitGiftActivate { }
+
+message IdleReqMazeOpen2 { }
+
+message IdleReqMonthmarketSync { }
+
+message IdleReqReSync { }
+
+message IdleReqRactPower { }
+
+message IdleReqWsync { }
+
+message IdleReqWmatch { }
+
+message IdleReqWfight { }
+
+message IdleReqWloger1 { }
+
+message IdleReqStSync { }
+
+message IdleReqStRank { }
+
+message IdleReqStVsync { }
+
+message IdleReqStEsync { }
+
+message IdleReqStErank1 { }
+
+message IdleReqStErank2 { }
+
+message IdleReqStEopen { }
+
+message IdleReqStAsync { }
+
+message IdleReqStTback { }
+
+message IdleReqStowerSync { }
+
+message IdleReqStSsync { }
+
+message IdleReqStSmapRank { }
+
+message IdleReqStSclick { }
+
+message IdleReqNtaskSync { }
+

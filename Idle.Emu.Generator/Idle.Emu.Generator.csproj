@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cocos.Protobuf\Cocos.Protobuf.csproj" />
+      <ProjectReference Include="..\Cocos.Zip\Cocos.Zip.csproj" />
+      <ProjectReference Include="..\Idle.Emu.Apk\Idle.Emu.Apk.csproj" />
+      <ProjectReference Include="..\Idle.Emu.Messages\Idle.Emu.Messages.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="Resources\**">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <TargetPath>Resources\%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+</Project>

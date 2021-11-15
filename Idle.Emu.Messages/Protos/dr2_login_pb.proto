@@ -1,0 +1,113 @@
+// generated 2021-10-21 13:53
+syntax = "proto2";
+
+option csharp_namespace = "Idle.Emu.Messages.Login.Protos";
+
+package public;
+
+message IdleServer {
+	required int32 id = 1;
+	required string ip = 2;
+	required int32 port = 3;
+	required string name = 4;
+	required int32 status = 5;
+	required string language = 6;
+	optional string nickname = 7;
+}
+
+message IdleServerLogin {
+	required int32 sid = 1;
+	required string sname = 2;
+	optional string pname = 3;
+	optional int32 plogo = 4;
+	optional int32 plv = 5;
+	optional int32 flag = 6;
+	optional int32 uid = 7;
+	optional int32 border = 8;
+}
+
+message IdleReqEcho {
+	required int32 echo = 1;
+}
+
+message IdleRspEcho {
+	required int32 echo = 2;
+}
+
+message IdleReqPub {
+	required int32 language = 1;
+	required int32 vsn = 2;
+}
+
+message IdleRspPub {
+	required sint32 status = 1;
+	optional int32 language = 2;
+	optional int32 vsn = 3;
+	optional string pub = 4;
+}
+
+message IdleReqReg {
+	optional string rdid = 1;
+	optional string appversion = 2;
+	optional string osversion = 3;
+	optional string env = 4;
+}
+
+message IdleRspReg {
+	required sint32 status = 1;
+	optional int32 uid = 2;
+	optional string account = 3;
+	optional string password = 4;
+}
+
+message IdleReqSalt {
+	required string account = 1;
+}
+
+message IdleRspSalt {
+	required sint32 status = 1;
+	optional string salt = 2;
+	optional int32 uid = 3;
+}
+
+message IdleReqLogin {
+	required string checksum = 1;
+	optional string idfa = 2;
+	optional string keychain = 3;
+	optional string idfv = 4;
+	optional string env = 5;
+}
+
+message IdleRspLogin {
+	required sint32 status = 1;
+	optional string session = 2;
+	optional int32 sid = 3;
+	optional bool is_formal = 4;
+	optional int32 uid = 5;
+	optional string createTs = 6;
+}
+
+message IdleReqThirdlogin {
+	required string platform = 1;
+	optional string jsonStr = 2;
+}
+
+message IdleRspThirdlogin {
+	required sint32 status = 1;
+	optional string session = 2;
+	optional int32 sid = 3;
+	optional int32 uid = 4;
+	optional string createTs = 5;
+	optional string ext = 6;
+	optional int32 mid = 7;
+}
+
+message IdleReqServersLogin {
+	optional int32 uid = 1;
+}
+
+message IdleRspServersLogin {
+	repeated IdleServerLogin servers = 1;
+	optional int32 recent_sid = 2;
+}
+

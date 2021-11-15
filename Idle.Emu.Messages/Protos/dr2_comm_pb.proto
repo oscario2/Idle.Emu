@@ -1,0 +1,1021 @@
+// generated 2021-10-21 13:53
+syntax = "proto2";
+
+option csharp_namespace = "Idle.Emu.Messages.Comm.Protos";
+
+package public;
+
+message IdlePlayer {
+	required string name = 1;
+	required int32 logo = 2;
+	optional int32 gid = 3;
+	optional string gname = 4;
+	optional int32 border = 5;
+	optional int32 glv = 6;
+}
+
+message IdleServer {
+	required int32 sid = 1;
+	required string sname = 2;
+	optional string pname = 3;
+	optional int32 plogo = 4;
+	optional int32 plv = 5;
+	optional int32 flag = 6;
+	optional int32 uid = 7;
+	optional int32 border = 8;
+}
+
+message IdleItem {
+	required int32 id = 1;
+	required int64 num = 2;
+}
+
+message IdleEquip {
+	required int32 id = 1;
+	required uint32 num = 2;
+	optional int32 eid = 3;
+	optional int32 hid = 4;
+}
+
+message IdleBag {
+	repeated IdleItem items = 1;
+	repeated IdleEquip equips = 2;
+}
+
+message IdleHero {
+	required int32 hid = 1;
+	required int32 id = 2;
+	required int32 lv = 3;
+	required int32 star = 4;
+	optional int32 flag = 5;
+	repeated IdleEquip equips = 6;
+	optional int32 wake = 7;
+	repeated int32 jade = 8;
+	optional bool visit = 9;
+	repeated int32 skill_id = 10;
+	repeated IdleSattr sattrs = 11;
+}
+
+message IdleSattr {
+	optional int32 id = 1;
+	optional int32 attr = 2;
+	optional int32 value = 3;
+}
+
+message IdleDup {
+	optional int32 id = 1;
+	repeated int32 bids = 2;
+	optional int32 sts = 3;
+	optional int32 mid = 4;
+	optional int32 rid = 5;
+	optional int32 skip = 6;
+}
+
+message IdleEmbr {
+	optional int32 uid = 1;
+	optional int32 lv = 2;
+	optional int32 status = 3;
+	optional string stime = 4;
+	optional int32 logo = 5;
+	optional string name = 6;
+	optional int32 border = 7;
+	optional int32 id = 8;
+}
+
+message IdleScell {
+	optional int32 pos = 1;
+	optional int32 status = 2;
+	optional int32 id = 3;
+	repeated int32 ids1 = 4;
+	repeated int32 ids2 = 5;
+}
+
+message IdleSbuilding {
+	optional sint32 lv = 1;
+	optional sint32 cd = 2;
+	optional sint32 num = 3;
+}
+
+message IdleSscell {
+	optional int32 pos = 1;
+	optional int32 status = 2;
+	optional int32 id = 3;
+	optional int32 boss_id = 4;
+	repeated int32 boss_hp = 5;
+	optional IdlePmbr mbr = 6;
+	optional int32 hid = 7;
+	optional int32 cd = 8;
+	optional int32 lv = 9;
+	optional int32 add = 10;
+	optional int32 times = 11;
+	optional int32 rid = 12;
+	optional int32 wake = 13;
+	optional int32 rlv = 14;
+}
+
+message IdleSsevent {
+	optional int32 id = 1;
+	optional int32 num = 2;
+	optional int32 lv_item = 3;
+	optional int32 score = 4;
+	optional int32 num2 = 5;
+	repeated IdleBag reward = 6;
+}
+
+message IdleSssweep {
+	optional int32 pos = 1;
+	optional int32 hid = 2;
+}
+
+message IdleGacha {
+	required int32 item = 1;
+	required int32 gem = 2;
+	optional int32 id = 3;
+	optional int32 act = 4;
+	optional int32 cd = 5;
+}
+
+message IdleMail {
+	required int32 mid = 1;
+	required int32 id = 2;
+	optional int64 uid = 3;
+	required int32 flag = 4;
+	required int32 send_time = 5;
+	optional string title = 6;
+	optional string from = 7;
+	optional string content = 8;
+	optional string content_o = 9;
+	optional IdleBag affix = 10;
+}
+
+message IdleCunit {
+	required int32 id = 1;
+	optional int32 lv = 2;
+	optional int32 star = 3;
+	optional int32 power = 4;
+	optional int32 hp = 5;
+	optional int32 atk = 6;
+	optional int32 armor = 7;
+	optional int32 spd = 8;
+	optional int32 wake = 9;
+	optional int32 skin = 10;
+	optional int32 stl = 11;
+}
+
+message IdleChat {
+	optional int64 uid = 1;
+	optional int32 logo = 2;
+	optional int32 lv = 3;
+	optional int32 vip = 4;
+	optional string name = 5;
+	optional int32 type = 6;
+	optional string text = 7;
+	optional int32 time = 8;
+	optional int32 share_id = 9;
+	optional int32 hero_id = 10;
+	optional int32 final_rank = 11;
+	optional int32 gid = 12;
+	optional string gname = 13;
+	optional int32 glv = 14;
+	optional string gmsg = 15;
+	optional int32 gFight = 16;
+	optional int32 border = 17;
+}
+
+message IdleUpfile {
+	required string md5 = 1;
+	required string path = 2;
+}
+
+message IdleGood {
+	required int32 id = 1;
+	required int32 type = 2;
+	required int32 count = 3;
+	required int32 excel_id = 4;
+	optional int32 bought = 5;
+}
+
+message IdleOnepay {
+	required string tid = 1;
+	optional string txid = 2;
+	optional string tdate = 3;
+}
+
+message IdleHook {
+	required sint32 status = 1;
+	optional int32 hook_stage = 2;
+	optional int32 boss_cd = 3;
+	optional int32 poker_cd = 4;
+	optional IdleBag reward = 5;
+	optional int32 pve_stage = 6;
+	optional IdleBag extra = 7;
+}
+
+message IdleFrd {
+	required int32 logo = 1;
+	required string name = 2;
+	required int32 lv = 3;
+	optional int32 flag = 4;
+	optional int64 uid = 5;
+	optional int32 last = 6;
+	optional int32 power = 7;
+	optional int32 border = 8;
+}
+
+message IdleFriend {
+	repeated IdleFrd friends = 1;
+	required int32 love = 2;
+	required int32 cd = 3;
+	repeated IdleFrd apply = 4;
+	repeated IdleFrd recmd = 5;
+}
+
+message IdleCasinoItem {
+	required int32 type = 1;
+	required int32 id = 2;
+	required int32 count = 3;
+	optional int32 cool = 4;
+	optional int32 limitBuy = 5;
+	optional int32 weight = 6;
+}
+
+message IdleCasinoMsg {
+	required string name = 1;
+	required int32 type = 2;
+	required int32 id = 3;
+	required int32 count = 4;
+}
+
+message IdleGmember {
+	required int64 uid = 1;
+	required string name = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	optional int32 last = 5;
+	optional int32 title = 6;
+	optional int32 power = 7;
+	optional int32 gfight = 8;
+	optional int32 border = 9;
+	optional int32 cwar = 10;
+}
+
+message IdleGuild {
+	required int32 id = 1;
+	required string name = 2;
+	required int32 logo = 3;
+	required int32 exp = 4;
+	optional string notice = 5;
+	optional int32 power = 6;
+	optional int32 rank = 7;
+	optional int32 members = 8;
+	optional string pname = 9;
+	optional int32 dismiss_cd = 10;
+	optional int32 flag = 11;
+}
+
+message IdleGlog {
+	required int32 type = 1;
+	optional int32 time = 2;
+	optional string obj_name = 3;
+	optional string do_name = 4;
+}
+
+message IdleUnit {
+	optional int32 hid = 1;
+	optional int32 id = 2;
+	optional int32 pos = 3;
+	optional int32 lv = 4;
+	optional int32 star = 5;
+	optional int32 energy = 6;
+	optional int32 hpp = 7;
+	optional int32 wake = 8;
+	optional int32 skin = 9;
+	optional int32 stl = 10;
+}
+
+message IdleStrial {
+	required int32 id = 1;
+	required int32 tl = 2;
+	required int32 cd = 3;
+}
+
+message IdleTrial {
+	required int32 logo = 1;
+	required int32 lv = 2;
+	required string name = 3;
+	optional int32 power = 4;
+	optional int32 stage = 5;
+	optional IdleEvideo video = 6;
+	optional int32 border = 7;
+}
+
+message IdlePlog {
+	required IdlePmbr rival = 1;
+	required bool atk = 2;
+	required bool win = 3;
+	repeated int32 vid = 4;
+	required int32 time = 5;
+	required int32 score = 6;
+	repeated bool wins = 7;
+}
+
+message IdleP3plog {
+	optional IdleP3pmbr def = 1;
+	optional bool atk = 2;
+	optional bool win = 3;
+	optional int32 vid = 4;
+	optional int32 time = 5;
+	optional int32 score = 6;
+}
+
+message IdlePmbr {
+	optional string name = 1;
+	optional int64 uid = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	optional int32 score = 5;
+	optional int32 power = 6;
+	optional int32 rank = 7;
+	optional string gname = 8;
+	optional int32 trank = 9;
+	optional int32 tscore = 10;
+	repeated IdleUnit camp = 11;
+	optional int32 win = 12;
+	optional int32 fight = 13;
+	optional int32 sid = 14;
+	optional int32 border = 15;
+	optional int32 ptype = 16;
+}
+
+message IdleP3pmbr {
+	optional string name = 1;
+	optional int64 uid = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	optional int32 lbox = 5;
+	optional int32 power = 6;
+	optional int32 rank = 7;
+	optional int32 score = 8;
+	repeated IdleUnit camp = 9;
+}
+
+message IdleSmbr {
+	optional string name = 1;
+	optional int64 uid = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	optional int32 lbox = 5;
+	optional int32 score = 6;
+}
+
+message IdleSmbrs {
+	repeated IdleSmbr mbrs = 1;
+	optional int32 score = 2;
+	optional int32 rank = 3;
+}
+
+message IdlePvp {
+	required int32 id = 1;
+	required sint32 status = 2;
+	optional IdlePmbr self = 3;
+	optional int32 season_cd = 4;
+	optional int32 daily_cd = 5;
+}
+
+message IdleWpvp {
+	required int32 wid = 1;
+	optional int32 flag = 2;
+	optional int32 cd = 3;
+}
+
+message IdleWmbr {
+	optional int64 uid = 1;
+	optional string gname = 2;
+	optional int32 score = 3;
+	optional string name = 4;
+	optional int32 logo = 5;
+	optional int32 lv = 6;
+	optional int32 power = 7;
+	optional int32 lbox = 8;
+	optional int32 like = 9;
+	optional bool king = 10;
+	optional int32 num = 11;
+}
+
+message IdleLink {
+	optional int32 cd = 1;
+	optional int32 win = 2;
+	optional int64 vid = 3;
+}
+
+message IdleWlog {
+	optional int64 vid = 1;
+	repeated IdleUnit atk = 2;
+	repeated IdleUnit def = 3;
+	required bool win = 4;
+}
+
+message IdleWvideo {
+	repeated IdleUnit atk = 1;
+	repeated IdleUnit def = 2;
+	repeated bytes frames = 3;
+	repeated IdleHurts hurts = 4;
+	required bool win = 5;
+}
+
+message IdleWscore {
+	required sint32 score = 1;
+	required sint32 delta = 2;
+	optional bool king = 3;
+}
+
+message IdleWcamp {
+	repeated IdleUnit camp = 1;
+}
+
+message IdleWloger {
+	required int64 vid = 1;
+	optional IdleWmbr mbr = 2;
+	optional int32 time = 3;
+	optional bool atk = 4;
+	optional bool win = 5;
+	optional sint32 delta = 6;
+}
+
+message IdlePvideo {
+	optional int32 id = 1;
+	optional IdlePmbr atk = 2;
+	optional IdlePmbr def = 3;
+	required bool win = 4;
+	repeated bytes frames = 5;
+	optional sint32 ascore = 6;
+	optional sint32 dscore = 7;
+	optional sint32 adelta = 8;
+	optional sint32 ddelta = 9;
+	repeated IdleHurts hurts = 10;
+	repeated IdleBag rewards = 11;
+	optional int32 select = 12;
+}
+
+message IdleP3pvideo {
+	optional IdleP3pmbr atk = 1;
+	optional IdleP3pmbr def = 2;
+	required bool win = 3;
+	repeated bytes frames = 4;
+	repeated IdleHurts hurts = 5;
+	optional sint32 ascore = 6;
+	optional sint32 dscore = 7;
+	optional sint32 adelta = 8;
+	optional sint32 ddelta = 9;
+	repeated IdleBag rewards = 10;
+	optional int32 select = 11;
+}
+
+message IdleHtaskInfo {
+	optional int32 tid = 1;
+	repeated int32 hids = 2;
+	repeated int32 heads = 3;
+}
+
+message IdleHtaskCond {
+	required int32 type = 1;
+	optional int32 faction = 2;
+}
+
+message IdleHtaskSync {
+	required int32 cd = 1;
+	repeated IdleHtask tasks = 2;
+}
+
+message IdleHtask {
+	required int32 tid = 1;
+	required int32 id = 2;
+	optional int32 cd = 3;
+	repeated IdleUnit heroes = 4;
+	optional IdleBag reward = 5;
+	repeated IdleHtaskCond conds = 6;
+	optional int32 power = 7;
+	optional int32 lock = 8;
+	required int32 nameid = 9;
+	repeated int32 heads = 10;
+}
+
+message IdleEvideo {
+	repeated bytes frames = 1;
+	optional bool win = 2;
+	optional IdleBag reward = 3;
+	repeated IdleUnit camp = 4;
+	repeated IdleHurts hurts = 5;
+}
+
+message IdleHurts {
+	required int32 pos = 1;
+	required int64 value = 2;
+	optional int64 heal = 3;
+}
+
+message IdleAlogin {
+	required string flag = 1;
+	optional int32 cd = 2;
+	optional int32 idx = 3;
+	optional int32 num = 4;
+	optional int32 cd2 = 5;
+}
+
+message IdleAct {
+	required uint32 id = 1;
+	optional int32 status = 2;
+	optional uint32 cd = 3;
+	optional int32 limits = 4;
+	optional int32 read = 5;
+	optional uint32 next = 6;
+	optional int32 loop = 7;
+	optional int32 bomb = 8;
+	optional IdleMonopoly monopoly = 9;
+	optional string code = 10;
+	optional int32 limits2 = 11;
+}
+
+message IdleMonopoly {
+	required int32 pos = 1;
+	repeated int32 lv = 2;
+	optional int32 next_event = 3;
+	optional int32 star = 4;
+}
+
+message IdleMonopolyStep {
+	required int32 id = 1;
+	repeated IdleItem reward = 2;
+	optional int32 star = 3;
+	optional int32 event = 4;
+	repeated int32 cards = 5;
+	optional int32 op_id = 6;
+}
+
+message IdleSactItem {
+	required uint32 id = 1;
+	optional uint32 cd = 2;
+	optional int32 bomb = 3;
+	optional int32 limits = 4;
+	optional uint32 next = 5;
+	repeated IdleSactMaze maze = 6;
+	optional uint32 spec = 7;
+}
+
+message IdleRactItem {
+	required uint32 id = 1;
+	repeated uint32 rewards = 2;
+	repeated IdleItem item = 3;
+	optional int32 day = 4;
+	optional int32 cd = 5;
+}
+
+message IdleSactMaze {
+	required int32 pos = 1;
+	optional int32 id = 2;
+	optional IdleBag rewards = 3;
+}
+
+message IdleSactLog {
+	optional int32 time = 1;
+	optional int32 result = 2;
+}
+
+message IdleMact {
+	required uint32 cd = 1;
+	repeated IdleItem war = 2;
+	repeated IdleItem htask = 3;
+	repeated IdleItem hmerge = 4;
+	optional int32 space_st = 5;
+	repeated IdleItem brave = 6;
+	optional int32 status = 7;
+}
+
+message IdleTask {
+	required int32 id = 1;
+	required int32 count = 2;
+	required int32 is_claim = 3;
+}
+
+message IdleOnline {
+	required int32 id = 1;
+	optional int32 cd = 2;
+}
+
+message IdleSachieve {
+	repeated int32 num = 1;
+	repeated int32 id = 2;
+	repeated int32 curnum = 3;
+}
+
+message IdleHmarket {
+	required int32 id = 1;
+	optional int32 num = 2;
+	optional int32 cd = 3;
+}
+
+message IdleGmarket {
+	required int32 id = 1;
+	optional int32 num = 2;
+	optional int32 gid = 3;
+}
+
+message IdleGvrank {
+	required int64 uid = 1;
+	optional string name = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	required int64 hurt = 5;
+	optional IdleBag reward = 6;
+	optional int32 border = 7;
+}
+
+message IdleGvrankDonate {
+	required string name = 1;
+	required int32 lv = 2;
+	required int32 logo = 3;
+	optional int32 num = 4;
+}
+
+message IdleBboss {
+	required int32 uid = 1;
+	optional string name = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	required uint64 hurt = 5;
+	optional int32 sid = 6;
+}
+
+message IdleGskl {
+	required int32 id = 1;
+	required int32 lv = 2;
+}
+
+message IdleBunit {
+	optional int32 hid = 1;
+	optional int32 id = 2;
+	optional int32 lv = 3;
+	optional int32 star = 4;
+	optional int32 hpp = 5;
+	optional int32 pos = 6;
+	optional int32 wake = 7;
+	optional int32 revive = 8;
+	optional int32 skin = 9;
+}
+
+message IdleBenemy {
+	required int32 logo = 1;
+	required int32 lv = 2;
+	required string name = 3;
+	required int32 power = 4;
+	required int32 sid = 5;
+	repeated IdleBunit camp = 6;
+	optional int32 border = 7;
+}
+
+message IdleNgwshold {
+	optional int32 left = 1;
+	optional int32 total = 2;
+	repeated IdleNgwbuff buffs = 3;
+	optional int64 power = 4;
+}
+
+message IdleNgwrank {
+	optional int32 gid = 1;
+	optional int32 score = 2;
+	optional int32 seg = 3;
+	optional int32 time = 4;
+	optional int32 logo = 5;
+	optional string name = 6;
+	optional int64 power = 7;
+}
+
+message IdleNgwprank {
+	optional int64 uid = 1;
+	optional string name = 2;
+	optional int32 lv = 3;
+	optional int32 logo = 4;
+	optional int32 lbox = 5;
+	optional string gname = 6;
+	optional int32 score = 7;
+	optional int32 time = 8;
+	optional int32 power = 9;
+	repeated int32 daily = 10;
+}
+
+message IdleNgwbuff {
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+message IdleNgwmbr {
+	optional int32 idx = 1;
+	optional int32 logo = 2;
+	optional string gname = 3;
+	optional int32 power = 4;
+	optional int32 lv = 5;
+	optional int32 lbox = 6;
+	repeated IdleUnit unit = 7;
+	optional int64 uid = 8;
+	optional int32 gid = 9;
+	optional int32 win = 10;
+}
+
+message IdleClink {
+	optional int32 cd = 1;
+	optional int32 atk = 2;
+	optional int32 def = 3;
+	optional int32 win = 4;
+	optional int64 vid = 5;
+}
+
+message IdleCgwInfo {
+	optional int32 id = 1;
+	optional int32 logo = 2;
+	optional int64 power = 3;
+	optional string name = 4;
+}
+
+message IdleCgwMbr {
+	optional int64 uid = 1;
+	optional int32 logo = 2;
+	optional int32 lv = 3;
+	optional int32 lbox = 4;
+	optional string name = 5;
+	repeated IdleUnit camp = 6;
+}
+
+message IdleCgwRecord {
+	optional int32 gid = 1;
+	optional int32 logo = 2;
+	optional int32 vid = 3;
+	optional int32 cd = 4;
+	optional int32 flag = 5;
+	optional int64 power = 6;
+	optional string name = 7;
+	optional bool atk = 8;
+	optional bool win = 9;
+	optional int64 spower = 10;
+}
+
+message IdleCgwLog {
+	optional IdleCgwMbr atk = 1;
+	optional IdleCgwMbr def = 2;
+	optional bool win = 3;
+}
+
+message IdleNgwSweep {
+	optional int32 status = 1;
+	optional int32 id = 2;
+	optional int32 destroy = 3;
+}
+
+message IdleCd {
+	required int32 id = 1;
+	required int32 cd = 2;
+}
+
+message IdleGpvpteam {
+	optional int32 leader = 1;
+	repeated IdlePmbr mbrs = 2;
+	optional int32 sid = 3;
+	optional int32 score = 4;
+	optional int32 rank = 5;
+	optional int32 power = 6;
+	optional string name = 7;
+	optional int32 need_power = 8;
+	optional string password = 9;
+	optional int32 id = 10;
+	optional bool reg = 11;
+	optional int32 enegy = 12;
+	optional int32 enggy_cd = 13;
+}
+
+message IdleGpvplog {
+	required int32 log_id = 1;
+	required IdleGpvpteam enemy = 2;
+	optional sint32 score = 3;
+	optional bool win = 4;
+	optional int32 time = 5;
+}
+
+message IdleGpvpWlog {
+	required IdleGpvpteam atk = 1;
+	required IdleGpvpteam def = 2;
+	repeated bool wins = 3;
+	repeated int32 vids = 4;
+}
+
+message IdlePet {
+	required int32 id = 1;
+	required int32 lv = 2;
+	required int32 star = 3;
+	repeated int32 skl = 4;
+}
+
+message IdleSpkunit {
+	optional IdleUnit base = 1;
+	repeated IdleItem buf = 2;
+}
+
+message IdleSpkmbr {
+	required int32 uid = 1;
+	required int32 lv = 2;
+	required int32 wave = 3;
+	required int32 time = 4;
+	required int32 logo = 5;
+	required string name = 6;
+	optional int32 border = 7;
+}
+
+message IdleHoly {
+	required int32 id = 1;
+	required int32 pos = 2;
+	optional int32 val = 3;
+}
+
+message IdleMine {
+	required int32 id = 1;
+	required int32 pos = 2;
+	required int32 val = 3;
+}
+
+message IdleLand {
+	required int32 id = 1;
+	required int32 pos = 2;
+	optional int32 cd = 3;
+	optional int32 cdk = 4;
+	optional bool dead = 5;
+}
+
+message IdleVit {
+	required int32 vit = 1;
+	optional int32 buy = 2;
+}
+
+message IdleIevent {
+	required int32 id = 1;
+	optional int32 cd = 2;
+	optional string ext = 3;
+	optional int32 sid = 4;
+	optional IdleBag reward = 5;
+}
+
+message IdleIadt {
+	optional int32 dist = 1;
+	repeated IdleIevent mevts = 2;
+	repeated IdleIevent pevts = 3;
+	optional int32 vit = 4;
+	optional int32 vitcd = 5;
+	optional IdleBag reward = 6;
+	optional int32 rt = 7;
+	optional int32 num = 8;
+}
+
+message IdleIboat {
+	optional string name = 1;
+	optional int32 exp = 2;
+	optional int32 arm = 3;
+	optional int32 spd = 4;
+	repeated int32 skls = 5;
+}
+
+message IdleIpro {
+	optional int32 id = 1;
+	optional int32 num = 2;
+	optional int32 cd = 3;
+}
+
+message IdleIdentity {
+	optional int32 online_time = 1;
+	optional int32 adult = 2;
+	optional string locale = 3;
+	optional int32 age = 4;
+	optional int32 mrecharge = 5;
+}
+
+message IdleSact {
+	repeated IdleSactItem acts = 1;
+}
+
+message IdleRact {
+	repeated IdleRactItem acts = 1;
+	optional int32 show = 2;
+}
+
+message IdleBraveBox {
+	required int32 id = 1;
+}
+
+message IdleBraveBuff {
+	required int32 id = 1;
+	required int32 num = 2;
+}
+
+message IdleReSync {
+	optional int32 role = 1;
+	optional int32 gift_id = 2;
+	optional int32 back_gift = 3;
+	optional int32 bind_times = 4;
+	optional int32 help_times = 5;
+	optional int32 back_cd = 6;
+	optional int32 bind = 7;
+	repeated IdleReTask s_tasks = 8;
+	repeated IdleReTask h_tasks = 9;
+	optional int32 cd = 10;
+	optional int32 cd2 = 11;
+	repeated IdleReApply applys = 12;
+	optional string code = 13;
+	repeated IdleReBindPlayer players = 14;
+}
+
+message IdleReBindPlayer {
+	optional int32 logo = 1;
+	optional int32 uid = 2;
+	optional string name = 3;
+	optional int32 bind = 4;
+}
+
+message IdleReApply {
+	required int32 logo = 1;
+	optional int64 uid = 2;
+	optional string name = 3;
+	optional int32 cd = 4;
+}
+
+message IdleReTask {
+	required int32 id = 1;
+	optional int32 num1 = 2;
+	optional int32 num2 = 3;
+}
+
+message IdleVbuff {
+	optional int32 id = 1;
+	optional int32 type = 2;
+}
+
+message IdleStele {
+	optional int32 hook = 1;
+	optional int32 solo = 2;
+	optional int32 crush = 3;
+	optional int32 tower = 4;
+	repeated int32 sealland = 5;
+	optional int32 st = 6;
+}
+
+message IdleMidas {
+	required int32 type = 1;
+	required int32 cd = 2;
+	required int32 index = 3;
+}
+
+message IdleGve {
+	optional int32 id = 1;
+	optional int32 exp = 2;
+	repeated int32 record = 3;
+	optional int32 fight = 4;
+}
+
+message IdleGveRank {
+	optional int32 id = 1;
+	optional string name = 2;
+	optional int32 exp = 3;
+	optional int32 texp = 4;
+}
+
+message IdleActBlock {
+	optional int32 pos = 1;
+	optional sint32 eventid = 2;
+}
+
+message IdleActMaze {
+	optional int32 floor = 1;
+	repeated IdleActBlock events = 2;
+	optional int32 heroid = 3;
+	optional int32 skill = 4;
+	optional int32 skill_lv = 5;
+	optional int32 change = 6;
+	optional int32 treasures = 7;
+	optional int32 buff = 8;
+	optional int32 type = 9;
+	optional int32 pos = 10;
+	optional int32 buy_num = 11;
+	optional bool get_frag = 12;
+}
+
+message IdleNtask {
+	required int32 id = 1;
+	required int64 count = 2;
+	required int32 status = 3;
+	repeated IdleNextra extra = 4;
+}
+
+message IdleNextra {
+	repeated int32 id = 1;
+}
+
+message IdleNtSync {
+	required sint32 type = 1;
+	repeated int64 value = 2;
+}
+

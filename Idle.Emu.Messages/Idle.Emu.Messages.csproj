@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="Resources\**">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <TargetPath>Resources\%(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\*.proto" ProtoRoot="Protos" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Protos" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.18.1" />
+      <PackageReference Include="Grpc.Tools" Version="2.41.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+</Project>
